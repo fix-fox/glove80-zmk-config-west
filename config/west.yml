@@ -5,7 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: moergo-sc
-      revision: main
+      revision: main  # Tip: you can use a specific version tag here instead of 'main', e.g. 'v25.08'
       import: app/west.yml
   self:
     path: config
