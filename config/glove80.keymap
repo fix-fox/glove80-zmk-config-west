@@ -148,7 +148,7 @@
 &kp  &kp      &kp        &kp           &kp            &kp                                          &kp  &kp        &kp       &kp        &kp  &kp
 &kp  &kp      &kp LC(W)  &kp LA(LEFT)  &kp LA(RIGHT)  &kp                                          &kp  &kp PG_UP  &kp UP    &kp PG_DN  &kp  &kp
 &kp  &kp TAB  &kp LALT   &kp LCTRL     &kp LSHFT      &kp SPACE                                    &kp  &kp LEFT   &kp DOWN  &kp RIGHT  &kp  &kp
-&kp  &kp      &kp        &kp           &kp            &kp RET    &kp    &kp  &kp    &kp  &kp  &kp  &kp  &kp HOME   &kp       &kp END    &kp  &kp
+&kp  &kp      &kp        &kp RET       &kp LC(F)      &kp X      &kp    &kp  &kp    &kp  &kp  &kp  &kp  &kp HOME   &kp       &kp END    &kp  &kp
 &kp  &kp      &kp        &kp LC(Y)     &kp LC(Z)                 &kp X  &kp  &kp    &kp  &kp  &kp       &kp        &kp       &kp        &kp  &kp
             >;
         };
