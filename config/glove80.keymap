@@ -19,6 +19,14 @@
 #define MAGIC 2
 #define FACTORY_TEST 3
 
+&mt {
+    quick-tap-ms = <180>;
+    require-prior-idle-ms = <150>;
+    tapping-term-ms = <200>;
+    flavor = "balanced";
+    hold-trigger-on-release;
+};
+
 / {
     behaviors {
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
