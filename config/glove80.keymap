@@ -140,12 +140,12 @@
 
         cursor_layer {
             bindings = <
-&trans  &trans   &trans     &trans        &trans                                                                                           &trans     &trans    &trans     &trans  &trans
-&trans  &trans   &trans     &trans        &trans         &trans                                                                    &trans  &trans     &trans    &trans     &trans  &trans
-&trans  &trans   &kp LC(W)  &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(X)                                                                 &kp X   &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
-&trans  &kp TAB  &kp LALT   &kp LCTRL     &kp LSHFT      &kp LC(C)                                                                 &kp X   &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &trans   &trans     &kp X         &kp LC(F)      &kp LC(V)  &kp X  &trans  &trans    &trans  &trans           &kp RET      &trans  &kp HOME   &trans    &kp END    &trans  &trans
-&trans  &trans   &trans     &kp LC(Y)     &kp LC(Z)                 &kp X  &trans  &trans    &trans  &kp LS(LA(TAB))  &kp LA(TAB)          &trans     &trans    &trans     &trans  &trans
+&trans  &trans           &trans             &trans        &trans                                                                                           &trans     &trans    &trans     &trans  &trans
+&trans  &trans           &trans             &trans        &trans         &trans                                                                    &trans  &trans     &trans    &trans     &trans  &trans
+&trans  &trans           &kp LC(W)          &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(X)                                                                 &kp X   &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
+&trans  &kp TAB          &kp LALT           &kp LCTRL     &kp LSHFT      &kp LC(C)                                                                 &kp X   &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
+&trans  &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp RET       &kp LC(F)      &kp LC(V)  &kp X  &trans  &trans    &trans  &trans           &kp RET      &trans  &kp HOME   &trans    &kp END    &trans  &trans
+&trans  &trans           &trans             &kp LC(Y)     &kp LC(Z)                 &kp X  &trans  &trans    &trans  &kp LS(LA(TAB))  &kp LA(TAB)          &trans     &trans    &trans     &trans  &trans
             >;
         };
 
