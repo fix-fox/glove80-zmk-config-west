@@ -48,6 +48,13 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&rgb_ug_status_macro>;
         };
+
+        td_caps: td_caps {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_CAPS";
+            #binding-cells = <0>;
+            bindings = <&caps_word>, <&kp CLCK>;
+        };
     };
 
     macros {
@@ -100,12 +107,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp X       &kp X           &kp X           &kp X        &kp X                                                                                                      &kp X        &kp X         &kp X            &kp X           &kp X
-&kp X       &kp N1          &kp N2          &kp N3       &kp N4            &kp N5                                                                           &kp N6  &kp N7       &kp N8        &kp N9           &kp N0          &kp X
-&kp X       &kp Q           &kp W           &kp E        &kp R             &kp T                                                                            &kp Y   &kp U        &kp I         &kp O            &kp P           &kp X
-&kp X       &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                                                                            &kp H   &mt RSHFT J  &mt RCTRL K   &mt RIGHT_ALT L  &mt RMETA SEMI  &kp X
-&kp X       &kp Z           &kp X           &kp C        &kp V             &kp B   &kp ESC          &kp LG(SPACE)  &kp X    &kp X       &kp X    &kp RET    &kp N   &kp M        &kp COMMA     &kp DOT          &kp FSLH        &kp X
-&magic 2 0  &kp GRAVE       &kp LBKT        &kp RBKT     &kp X                     &lt 4 BACKSPACE  &kp DEL        &kp X    &caps_word  &kp TAB  &kp SPACE          &kp X        &kp LS(LPAR)  &kp LS(RPAR)     &kp X           &magic 2 0
+&kp X       &kp X           &kp X           &kp X        &kp X                                                                                                    &kp X        &kp X         &kp X            &kp X           &kp X
+&kp X       &kp N1          &kp N2          &kp N3       &kp N4            &kp N5                                                                         &kp N6  &kp N7       &kp N8        &kp N9           &kp N0          &kp X
+&kp X       &kp Q           &kp W           &kp E        &kp R             &kp T                                                                          &kp Y   &kp U        &kp I         &kp O            &kp P           &kp X
+&kp X       &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                                                                          &kp H   &mt RSHFT J  &mt RCTRL K   &mt RIGHT_ALT L  &mt RMETA SEMI  &kp X
+&kp X       &kp Z           &kp X           &kp C        &kp V             &kp B   &kp ESC          &kp LG(SPACE)  &kp X    &kp X     &kp X    &kp RET    &kp N   &kp M        &kp COMMA     &kp DOT          &kp FSLH        &kp X
+&magic 2 0  &kp GRAVE       &kp LBKT        &kp RBKT     &kp X                     &lt 4 BACKSPACE  &kp DEL        &kp X    &td_caps  &kp TAB  &kp SPACE          &kp X        &kp LS(LPAR)  &kp LS(RPAR)     &kp X           &magic 2 0
             >;
         };
 
