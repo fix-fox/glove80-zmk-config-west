@@ -162,12 +162,12 @@
 
         symbols_layer {
             bindings = <
-&kp X         &trans         &trans        &trans         &trans                                                                                &trans     &trans       &trans     &trans         &trans
-&trans        &trans         &trans        &trans         &trans        &trans                                                          &trans  &trans     &trans       &trans     &trans         &trans
-&kp LS(LBRC)  &kp LBKT       &kp LS(LPAR)  &kp LS(RPAR)   &kp RBKT      &kp LS(RBRC)                                                    &kp X   &trans     &trans       &trans     &trans         &trans
-&trans        &kp LS(CARET)  &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp X                                                           &trans  &kp SQT    &kp LS(DQT)  &kp GRAVE  &trans         &trans
-&trans        &kp LS(LT)     &kp LS(PIPE)  &kp MINUS      &kp LS(GT)    &kp X         &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans     &kp COMMA    &kp DOT    &kp LS(QMARK)  &trans
-&trans        &trans         &trans        &trans         &trans                      &trans  &trans  &trans    &trans  &trans  &trans          &kp LC(Z)  &kp LC(Y)    &kp X      &trans         &trans
+&kp X         &trans         &trans        &trans         &trans                                                                                                     &trans        &trans        &trans        &trans         &trans
+&trans        &trans         &trans        &trans         &trans        &trans                                                                               &trans  &trans        &trans        &trans        &trans         &trans
+&kp LS(LBRC)  &kp LBKT       &kp LS(LPAR)  &kp LS(RPAR)   &kp RBKT      &kp LS(RBRC)                                                                         &kp X   &kp LS(AMPS)  &kp LS(STAR)  &kp LS(PIPE)  &trans         &trans
+&trans        &kp LS(CARET)  &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp X                                                                                &trans  &kp SQT       &kp LS(DQT)   &kp GRAVE     &kp SEMICOLON  &trans
+&trans        &kp LS(LT)     &kp LS(PLUS)  &kp MINUS      &kp LS(GT)    &kp X         &kp LS(COLON)    &kp LS(AMPS)  &kp LS(PIPE)    &trans  &trans  &trans  &trans  &trans        &kp COMMA     &kp DOT       &kp LS(QMARK)  &trans
+&trans        &trans         &trans        &trans         &trans                      &kp EXCLAMATION  &trans        &trans          &trans  &trans  &trans          &kp LC(Z)     &kp LC(Y)     &kp X         &trans         &trans
             >;
         };
     };
