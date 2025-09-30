@@ -151,23 +151,23 @@
 
         numbers_layer {
             bindings = <
-&trans  &trans  &trans         &trans     &trans                                                                                  &trans         &trans        &trans        &trans         &trans
-&trans  &trans  &trans         &trans     &trans     &trans                                                               &trans  &kp LS(CARET)  &kp X         &trans        &trans         &trans
-&trans  &trans  &trans         &trans     &trans     &trans                                                               &trans  &kp N7         &kp N8        &kp N9        &kp LS(COLON)  &kp LS(PRCNT)
-&kp X   &trans  &kp LS(UNDER)  &kp X      &trans     &trans                                                               &trans  &kp N4         &kp N5        &kp N6        &kp MINUS      &kp LS(PLUS)
-&kp X   &trans  &trans         &trans     &trans     &trans  &trans  &trans  &trans    &kp LS(LT)  &kp LS(GT)  &kp EQUAL  &trans  &kp N1         &kp N2        &kp N3        &kp FSLH       &kp LS(STAR)
-&kp X   &trans  &trans         &kp LC(Y)  &kp LC(Z)          &trans  &trans  &trans    &kp COMMA   &kp DOT     &kp N0             &kp LBKT       &kp LS(LPAR)  &kp LS(RPAR)  &kp RBKT       &trans
+&trans  &trans  &trans              &trans     &trans                                                                                    &trans         &trans        &trans        &trans         &trans
+&trans  &trans  &trans              &trans     &trans     &trans                                                               &trans    &kp LS(CARET)  &kp X         &trans        &trans         &trans
+&trans  &trans  &trans              &trans     &trans     &trans                                                               &trans    &kp N7         &kp N8        &kp N9        &kp LS(COLON)  &kp LS(PRCNT)
+&kp X   &trans  &kp LS(UNDERSCORE)  &kp X      &trans     &trans                                                               &kp PLUS  &kp N4         &kp N5        &kp N6        &kp MINUS      &kp LS(PLUS)
+&kp X   &trans  &trans              &trans     &trans     &trans  &trans  &trans  &trans    &kp LS(LT)  &kp LS(GT)  &kp EQUAL  &trans    &kp N1         &kp N2        &kp N3        &kp FSLH       &kp LS(STAR)
+&kp X   &trans  &trans              &kp LC(Y)  &kp LC(Z)          &trans  &trans  &trans    &kp COMMA   &kp DOT     &kp N0               &kp LBKT       &kp LS(LPAR)  &kp LS(RPAR)  &kp RBKT       &trans
             >;
         };
 
         symbols_layer {
             bindings = <
-&kp LCTRL  &trans  &trans  &trans  &trans                                                                    &trans     &trans       &trans     &trans  &trans
-&trans     &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans     &trans       &trans     &trans  &trans
-&trans     &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans     &trans       &trans     &trans  &trans
-&trans     &trans  &trans  &trans  &trans  &trans                                                    &trans  &kp SQT    &kp LS(DQT)  &kp GRAVE  &trans  &trans
-&trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans     &kp COMMA    &kp DOT    &trans  &trans
-&trans     &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &kp LC(Z)  &kp LC(Y)    &kp X      &trans  &trans
+&kp X   &trans  &trans  &trans         &trans                                                                    &trans     &trans       &trans     &trans  &trans
+&trans  &trans  &trans  &trans         &trans  &trans                                                    &trans  &trans     &trans       &trans     &trans  &trans
+&trans  &trans  &trans  &trans         &trans  &trans                                                    &trans  &trans     &trans       &trans     &trans  &trans
+&trans  &trans  &trans  &kp LS(UNDER)  &kp X   &trans                                                    &trans  &kp SQT    &kp LS(DQT)  &kp GRAVE  &trans  &trans
+&trans  &trans  &trans  &kp MINUS      &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans     &kp COMMA    &kp DOT    &trans  &trans
+&trans  &trans  &trans  &trans         &trans          &trans  &trans  &trans    &trans  &trans  &trans          &kp LC(Z)  &kp LC(Y)    &kp X      &trans  &trans
             >;
         };
     };
