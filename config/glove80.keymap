@@ -140,12 +140,12 @@
 
         cursor_layer {
             bindings = <
-&kp  &kp      &kp        &kp           &kp                                                                &kp        &kp       &kp        &kp  &kp
-&kp  &kp      &kp        &kp           &kp            &kp                                          &kp    &kp        &kp       &kp        &kp  &kp
-&kp  &kp      &kp LC(W)  &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(X)                                    &kp X  &kp PG_UP  &kp UP    &kp PG_DN  &kp  &kp
-&kp  &kp TAB  &kp LALT   &kp LCTRL     &kp LSHFT      &kp LC(C)                                    &kp X  &kp LEFT   &kp DOWN  &kp RIGHT  &kp  &kp
-&kp  &kp      &kp        &kp RET       &kp LC(F)      &kp LC(V)  &kp X  &kp  &kp    &kp  &kp  &kp  &kp    &kp HOME   &kp       &kp END    &kp  &kp
-&kp  &kp      &kp        &kp LC(Y)     &kp LC(Z)                 &kp X  &kp  &kp    &kp  &kp  &kp         &kp        &kp       &kp        &kp  &kp
+&trans  &trans   &trans     &trans        &trans                                                                             &trans     &trans    &trans     &trans  &trans
+&trans  &trans   &trans     &trans        &trans         &trans                                                      &trans  &trans     &trans    &trans     &trans  &trans
+&trans  &trans   &kp LC(W)  &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(X)                                                   &kp X   &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
+&trans  &kp TAB  &kp LALT   &kp LCTRL     &kp LSHFT      &kp LC(C)                                                   &kp X   &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
+&trans  &trans   &trans     &kp RET       &kp LC(F)      &kp LC(V)  &kp X  &trans  &trans    &trans  &trans  &trans  &trans  &kp HOME   &trans    &kp END    &trans  &trans
+&trans  &trans   &trans     &kp LC(Y)     &kp LC(Z)                 &kp X  &trans  &trans    &trans  &trans  &trans          &trans     &trans    &trans     &trans  &trans
             >;
         };
 
