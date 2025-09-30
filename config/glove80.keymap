@@ -159,5 +159,16 @@
 &kp  &kp      &kp        &kp LC(Y)     &kp LC(Z)                 &kp X  &kp  &kp    &kp  &kp  &kp         &kp        &kp       &kp        &kp  &kp
             >;
         };
+
+        numbers_layer {
+            bindings = <
+&trans  &trans  &trans         &trans     &trans                                                                                  &trans         &trans        &trans        &trans         &trans
+&trans  &trans  &trans         &trans     &trans     &trans                                                               &trans  &kp LS(CARET)  &kp X         &trans        &trans         &trans
+&trans  &trans  &trans         &trans     &trans     &trans                                                               &trans  &kp N7         &kp N8        &kp N9        &kp LS(COLON)  &kp LS(PRCNT)
+&kp X   &trans  &kp LS(UNDER)  &kp X      &trans     &trans                                                               &trans  &kp N4         &kp N5        &kp N6        &kp MINUS      &kp LS(PLUS)
+&kp X   &trans  &trans         &trans     &trans     &trans  &trans  &trans  &trans    &kp LS(LT)  &kp LS(GT)  &kp EQUAL  &trans  &kp N1         &kp N2        &kp N3        &kp FSLH       &kp LS(STAR)
+&kp X   &trans  &trans         &kp LC(Y)  &kp LC(Z)          &trans  &trans  &trans    &kp COMMA   &kp DOT     &kp N0             &kp LBKT       &kp LS(LPAR)  &kp LS(RPAR)  &kp RBKT       &trans
+            >;
+        };
     };
 };
