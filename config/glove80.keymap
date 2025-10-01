@@ -19,6 +19,10 @@
 #define MAGIC 2
 #define FACTORY_TEST 3
 
+// An attempt to configure &mt globally, supposedly for quicker and better home row mods.
+// Sometimes it fires too eagerly, when for example I'm rolling my fingers on asdf.
+// I suspect what happens is that I press two of the chars at the same time so it's interpreted as a double hold.
+// Let's still try it out for a while.
 &mt {
     quick-tap-ms = <180>;
     require-prior-idle-ms = <150>;
