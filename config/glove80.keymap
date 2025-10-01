@@ -23,6 +23,7 @@
 // Sometimes it fires too eagerly, when for example I'm rolling my fingers on asdf.
 // I suspect what happens is that I press two of the chars at the same time so it's interpreted as a double hold.
 // Let's still try it out for a while.
+
 &mt {
     quick-tap-ms = <180>;
     require-prior-idle-ms = <150>;
@@ -169,7 +170,7 @@
 &kp X          &trans         &trans        &trans         &trans                                                                                                     &trans        &trans        &trans        &trans         &trans
 &trans         &trans         &trans        &trans         &trans        &trans                                                                        &trans         &trans        &trans        &trans        &trans         &trans
 &kp LS(LBRC)   &kp LBKT       &kp LS(LPAR)  &kp LS(RPAR)   &kp RBKT      &kp LS(RBRC)                                                                  &kp X          &kp LS(AMPS)  &kp LS(STAR)  &kp LS(PIPE)  &trans         &trans
-&kp LS(POUND)  &kp LS(CARET)  &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp LS(STAR)                                                                  &kp BSLH       &kp SQT       &kp LS(DQT)   &kp GRAVE     &kp SEMICOLON  &trans
+&kp LS(POUND)  &kp LS(CARET)  &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp LS(STAR)                                                                  &kp BSLH       &kp SQT       &kp DQT       &kp GRAVE     &kp SEMICOLON  &trans
 &trans         &kp LS(LT)     &kp LS(PLUS)  &kp MINUS      &kp LS(GT)    &kp X         &kp LS(COLON)    &trans       &trans    &trans  &trans  &trans  &kp LS(TILDE)  &kp FSLH      &kp COMMA     &kp DOT       &kp LS(QMARK)  &trans
 &trans         &trans         &trans        &trans         &trans                      &kp EXCLAMATION  &kp AT_SIGN  &trans    &trans  &trans  &trans                 &kp LC(Z)     &kp LC(Y)     &kp X         &trans         &trans
             >;
