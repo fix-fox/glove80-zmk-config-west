@@ -24,6 +24,7 @@
 #define FACTORY_TEST 7
 
 // Define common hold-tap timing configuration to keep it DRY
+
 #define HT_QUICK_TAP_MS 180
 #define HT_PRIOR_IDLE_MS 150
 #define HT_TAPPING_TERM_MS 200
@@ -38,7 +39,8 @@
     quick-tap-ms = <HT_QUICK_TAP_MS>;
     require-prior-idle-ms = <HT_PRIOR_IDLE_MS>;
     tapping-term-ms = <HT_TAPPING_TERM_MS>;
-    flavor = HT_FLAVOR;
+    flavor =
+    HT_FLAVOR;
     hold-trigger-on-release;
 };
 
@@ -62,11 +64,13 @@
         };
 
         // Enhanced layer-tap with quick-tap for natural key repeat
+
         lt_repeat: layer_tap_repeat {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_REPEAT";
             #binding-cells = <2>;
-            flavor = HT_FLAVOR;
+            flavor =
+            HT_FLAVOR;
             tapping-term-ms = <HT_TAPPING_TERM_MS>;
             quick-tap-ms = <HT_QUICK_TAP_MS>;
             require-prior-idle-ms = <HT_PRIOR_IDLE_MS>;
@@ -149,11 +153,11 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&to 0           &none           &none           &none        &none                                                                                                                         &none        &none         &none            &none           &none
-&none           &kp N1          &kp N2          &kp N3       &kp N4            &kp N5                                                                                              &kp N6  &kp N7       &kp N8        &kp N9           &kp N0          &none
-&none           &kp Q           &kp W           &kp E        &kp R             &kp T                                                                                               &kp Y   &kp U        &kp I         &kp O            &kp P           &none
-&none           &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                                                                                               &kp H   &mt RSHFT J  &mt RCTRL K   &mt RIGHT_ALT L  &mt RMETA SEMI  &kp SQT
-&none           &kp Z           &kp X           &kp C        &kp V             &kp B   &kp ESC               &lang_toggle     &none    &none     &kp RC(SPACE)  &kp RET            &kp N   &kp M        &kp COMMA     &kp DOT          &kp FSLH        &none
+&to 0           &none           &none           &none        &none                                                                                                                                              &none        &none         &none            &none           &none
+&none           &kp N1          &kp N2          &kp N3       &kp N4            &kp N5                                                                                                                   &kp N6  &kp N7       &kp N8        &kp N9           &kp N0          &none
+&none           &kp Q           &kp W           &kp E        &kp R             &kp T                                                                                                                    &kp Y   &kp U        &kp I         &kp O            &kp P           &none
+&none           &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                                                                                                                    &kp H   &mt RSHFT J  &mt RCTRL K   &mt RIGHT_ALT L  &mt RMETA SEMI  &kp SQT
+&none           &kp Z           &kp X           &kp C        &kp V             &kp B   &kp ESC                      &lang_toggle            &none    &none     &kp RC(SPACE)  &kp RET                   &kp N   &kp M        &kp COMMA     &kp DOT          &kp FSLH        &none
 &magic MAGIC 0  &kp GRAVE       &kp LBKT        &kp RBKT     &none                     &lt_repeat CURSOR BACKSPACE  &lt_repeat NUMBERS DEL  &none    &td_caps  &kp TAB        &lt_repeat SYMBOLS SPACE          &none        &kp LS(LPAR)  &kp LS(RPAR)     &none           &magic MAGIC 0
             >;
         };
@@ -184,12 +188,12 @@
 
         cursor_layer {
             bindings = <
-&trans  &trans           &trans             &trans        &trans                                                                                            &trans     &trans    &trans     &trans  &trans
-&trans  &trans           &trans             &trans        &trans         &trans                                                                     &trans  &trans     &trans    &trans     &trans  &trans
-&trans  &trans           &kp LC(W)          &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(X)                                                                  &none   &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
-&trans  &kp TAB          &kp LALT           &kp LCTRL     &kp LSHFT      &kp LC(C)                                                                  &none   &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp RET       &kp LC(F)      &kp LC(V)  &trans  &trans  &trans    &trans  &trans           &kp RET      &trans  &kp HOME   &trans    &kp END    &trans  &trans
-&trans  &trans           &trans             &kp LC(Y)     &kp LC(Z)                 &trans  &trans  &trans    &trans  &kp LS(LA(TAB))  &kp LA(TAB)          &trans     &trans    &trans     &trans  &trans
+&trans  &trans           &trans             &trans        &trans                                                                              &trans     &trans    &trans     &trans  &trans
+&trans  &trans           &trans             &trans        &trans         &trans                                                       &trans  &trans     &trans    &trans     &trans  &trans
+&trans  &trans           &kp LC(W)          &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(X)                                                    &none   &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
+&trans  &kp TAB          &kp LALT           &kp LCTRL     &kp LSHFT      &kp LC(C)                                                    &none   &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
+&trans  &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp RET       &kp LC(F)      &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp HOME   &trans    &kp END    &trans  &trans
+&trans  &trans           &trans             &kp LC(Y)     &kp LC(Z)                 &trans  &trans  &trans    &trans  &trans  &trans          &trans     &trans    &trans     &trans  &trans
             >;
         };
 
