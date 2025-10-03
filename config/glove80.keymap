@@ -23,38 +23,33 @@
 #define HEBREW_SYMBOLS 6
 #define FACTORY_TEST 7
 
+// Define common hold-tap timing configuration to keep it DRY
+#define HT_QUICK_TAP_MS 180
+#define HT_PRIOR_IDLE_MS 150
+#define HT_TAPPING_TERM_MS 200
+#define HT_FLAVOR "balanced"
+
 // An attempt to configure &mt globally, supposedly for quicker and better home row mods.
 // Sometimes it fires too eagerly, when for example I'm rolling my fingers on asdf.
 // I suspect what happens is that I press two of the chars at the same time so it's interpreted as a double hold.
 // Let's still try it out for a while.
 
 &mt {
-    quick-tap-ms = <180>;
-    require-prior-idle-ms = <150>;
-    tapping-term-ms = <200>;
-    flavor = "balanced";
+    quick-tap-ms = <HT_QUICK_TAP_MS>;
+    require-prior-idle-ms = <HT_PRIOR_IDLE_MS>;
+    tapping-term-ms = <HT_TAPPING_TERM_MS>;
+    flavor = HT_FLAVOR;
     hold-trigger-on-release;
 };
 
 / {
     behaviors {
-        // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
-        // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
-
-        layer_td: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LAYER_TAP_DANCE";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo 0>, <&to 0>;
-        };
-
         magic: magic_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "MAGIC_HOLD_TAP";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <HT_TAPPING_TERM_MS>;
             bindings = <&mo>, <&rgb_ug_status_macro>;
         };
 
@@ -62,7 +57,21 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_CAPS";
             #binding-cells = <0>;
+            tapping-term-ms = <HT_TAPPING_TERM_MS>;
             bindings = <&caps_word>, <&kp CLCK>;
+        };
+
+        // Enhanced layer-tap with quick-tap for natural key repeat
+        lt_repeat: layer_tap_repeat {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_REPEAT";
+            #binding-cells = <2>;
+            flavor = HT_FLAVOR;
+            tapping-term-ms = <HT_TAPPING_TERM_MS>;
+            quick-tap-ms = <HT_QUICK_TAP_MS>;
+            require-prior-idle-ms = <HT_PRIOR_IDLE_MS>;
+            hold-trigger-on-release;
+            bindings = <&mo>, <&kp>;
         };
     };
 
@@ -145,7 +154,7 @@
 &none           &kp Q           &kp W           &kp E        &kp R             &kp T                                                                                               &kp Y   &kp U        &kp I         &kp O            &kp P           &none
 &none           &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                                                                                               &kp H   &mt RSHFT J  &mt RCTRL K   &mt RIGHT_ALT L  &mt RMETA SEMI  &kp SQT
 &none           &kp Z           &kp X           &kp C        &kp V             &kp B   &kp ESC               &lang_toggle     &none    &none     &kp RC(SPACE)  &kp RET            &kp N   &kp M        &kp COMMA     &kp DOT          &kp FSLH        &none
-&magic MAGIC 0  &kp GRAVE       &kp LBKT        &kp RBKT     &none                     &lt CURSOR BACKSPACE  &lt NUMBERS DEL  &none    &td_caps  &kp TAB        &lt SYMBOLS SPACE          &none        &kp LS(LPAR)  &kp LS(RPAR)     &none           &magic MAGIC 0
+&magic MAGIC 0  &kp GRAVE       &kp LBKT        &kp RBKT     &none                     &lt_repeat CURSOR BACKSPACE  &lt_repeat NUMBERS DEL  &none    &td_caps  &kp TAB        &lt_repeat SYMBOLS SPACE          &none        &kp LS(LPAR)  &kp LS(RPAR)     &none           &magic MAGIC 0
             >;
         };
 
