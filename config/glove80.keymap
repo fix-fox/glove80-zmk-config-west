@@ -13,6 +13,7 @@
 #define HYPER LC(LS(LG(LALT)))
 
 // layers
+
 #define DEFAULT 0
 #define HEBREW 1
 #define MAGIC 2
@@ -105,17 +106,21 @@
             label = "LANG_TOGGLE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LGUI>
-                , <&macro_tap &kp SPACE>
-                , <&macro_release &kp LGUI>
-                , <&macro_tap &tog HEBREW>
-                ;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&tog HEBREW>;
         };
     };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         hebrew_symbols {
             if-layers = <HEBREW SYMBOLS>;
             then-layer = <HEBREW_SYMBOLS>;
@@ -135,24 +140,25 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp X            &kp X           &kp X           &kp X        &kp X                                                                                                            &kp X        &kp X         &kp X            &kp X           &kp X
-&kp X            &kp N1          &kp N2          &kp N3       &kp N4            &kp N5                                                                                 &kp N6  &kp N7       &kp N8        &kp N9           &kp N0          &kp X
-&kp X            &kp Q           &kp W           &kp E        &kp R             &kp T                                                                                  &kp Y   &kp U        &kp I         &kp O            &kp P           &kp X
-&kp X            &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                                                                                  &kp H   &mt RSHFT J  &mt RCTRL K   &mt RIGHT_ALT L  &mt RMETA SEMI  &kp SQT
-&kp X            &kp Z           &kp X           &kp C        &kp V             &kp B   &kp ESC          &lang_toggle   &kp X    &kp X     &kp RC(SPACE)  &kp RET      &kp N   &kp M        &kp COMMA     &kp DOT          &kp FSLH        &kp X
-&magic MAGIC 0   &kp GRAVE       &kp LBKT        &kp RBKT     &kp X                     &lt CURSOR BACKSPACE  &lt NUMBERS DEL      &kp X    &td_caps  &kp TAB        &lt SYMBOLS SPACE          &kp X        &kp LS(LPAR)  &kp LS(RPAR)     &kp X           &magic MAGIC 0
+&kp X           &kp X           &kp X           &kp X        &kp X                                                                                                                         &kp X        &kp X         &kp X            &kp X           &kp X
+&kp X           &kp N1          &kp N2          &kp N3       &kp N4            &kp N5                                                                                              &kp N6  &kp N7       &kp N8        &kp N9           &kp N0          &kp X
+&kp X           &kp Q           &kp W           &kp E        &kp R             &kp T                                                                                               &kp Y   &kp U        &kp I         &kp O            &kp P           &kp X
+&kp X           &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                                                                                               &kp H   &mt RSHFT J  &mt RCTRL K   &mt RIGHT_ALT L  &mt RMETA SEMI  &kp SQT
+&kp X           &kp Z           &kp X           &kp C        &kp V             &kp B   &kp ESC               &lang_toggle     &kp X    &kp X     &kp RC(SPACE)  &kp RET            &kp N   &kp M        &kp COMMA     &kp DOT          &kp FSLH        &kp X
+&magic MAGIC 0  &kp GRAVE       &kp LBKT        &kp RBKT     &kp X                     &lt CURSOR BACKSPACE  &lt NUMBERS DEL  &kp X    &td_caps  &kp TAB        &lt SYMBOLS SPACE          &kp X        &kp LS(LPAR)  &kp LS(RPAR)     &kp X           &magic MAGIC 0
             >;
         };
 
         hebrew_layer {
             // Hebrew base layer - identical to English QWERTY for Hebrew typing
+
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                                                            &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &lang_toggle  &trans    &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans        &trans    &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                                                                          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &lang_toggle  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans        &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -204,13 +210,14 @@
             // Hebrew-specific symbol overrides
             // Most keys are transparent and fall through to SYMBOLS layer
             // Only define keys that need different positions for Hebrew
+
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                                                  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans  &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &kp W   &trans  &kp GRAVE  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans  &trans  &trans     &trans  &trans
             >;
         };
 
