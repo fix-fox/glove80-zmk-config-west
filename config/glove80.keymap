@@ -153,12 +153,12 @@
             // Hebrew base layer - identical to English QWERTY for Hebrew typing
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                                                          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &lang_toggle  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans        &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans     &trans  &trans                                                                          &trans  &trans   &trans     &trans  &trans
+&trans  &trans      &trans     &trans  &trans  &trans                                                          &trans  &trans  &trans   &trans     &trans  &trans
+&trans  &kp PERIOD  &kp COMMA  &trans  &trans  &trans                                                          &trans  &trans  &trans   &trans     &trans  &trans
+&trans  &trans      &trans     &trans  &trans  &trans                                                          &trans  &trans  &trans   &trans     &trans  &trans
+&trans  &trans      &trans     &trans  &trans  &trans  &trans  &lang_toggle  &trans    &trans  &trans  &trans  &trans  &trans  &kp SQT  &kp SLASH  &kp Q   &trans
+&trans  &trans      &trans     &trans  &trans          &trans  &trans        &trans    &trans  &trans  &trans          &trans  &trans   &trans     &trans  &trans
             >;
         };
 
