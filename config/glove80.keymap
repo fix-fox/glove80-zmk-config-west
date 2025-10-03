@@ -177,12 +177,12 @@
 
         cursor_layer {
             bindings = <
-&trans  &trans           &trans             &trans        &trans                                                                              &trans     &trans    &trans     &trans  &kp K_COFFEE
-&trans  &trans           &trans             &trans        &trans         &trans                                                       &trans  &trans     &trans    &trans     &trans  &trans
-&trans  &trans           &kp LC(W)          &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(X)                                                    &none   &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
-&trans  &kp TAB          &kp LALT           &kp LCTRL     &kp LSHFT      &kp LC(C)                                                    &none   &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp RET       &kp LC(F)      &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp HOME   &trans    &kp END    &trans  &trans
-&trans  &trans           &trans             &kp LC(Y)     &kp LC(Z)                 &trans  &trans  &trans    &trans  &trans  &trans          &trans     &trans    &trans     &trans  &trans
+&trans  &trans  &trans     &trans     &trans                                                                       &trans     &trans    &trans     &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans                                                    &trans  &trans     &trans    &trans     &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans                                                    &trans  &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
+&trans  &trans  &kp LALT   &kp LCTRL  &kp LSHFT  &trans                                                    &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
+&trans  &trans  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp HOME   &trans    &kp END    &trans  &trans
+&trans  &trans  &trans     &kp LC(Y)  &kp LC(Z)          &trans  &trans  &trans    &trans  &trans  &trans          &trans     &trans    &trans     &trans  &trans
             >;
         };
 
