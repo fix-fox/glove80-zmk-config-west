@@ -127,7 +127,7 @@
                 <&macro_release>,
                 <&kp LGUI>,
                 <&macro_tap>,
-                <&tog HEBREW>;
+                <&tog 1>;
         };
     };
 
@@ -135,8 +135,8 @@
         compatible = "zmk,conditional-layers";
 
         hebrew_symbols {
-            if-layers = <HEBREW SYMBOLS>;
-            then-layer = <HEBREW_SYMBOLS>;
+            if-layers = <1 4>;
+            then-layer = <5>;
         };
     };
 
@@ -153,12 +153,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&to 0           &none           &none           &none        &none                                                                                                                                              &none        &none         &none            &none           &none
-&none           &kp N1          &kp N2          &kp N3       &kp N4            &kp N5                                                                                                                   &kp N6  &kp N7       &kp N8        &kp N9           &kp N0          &none
-&none           &kp Q           &kp W           &kp E        &kp R             &kp T                                                                                                                    &kp Y   &kp U        &kp I         &kp O            &kp P           &none
-&none           &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                                                                                                                    &kp H   &mt RSHFT J  &mt RCTRL K   &mt RIGHT_ALT L  &mt RMETA SEMI  &kp SQT
-&none           &kp Z           &kp X           &kp C        &kp V             &kp B   &kp ESC                      &lang_toggle            &none    &none     &kp RC(SPACE)  &kp RET                   &kp N   &kp M        &kp COMMA     &kp DOT          &kp FSLH        &none
-&magic MAGIC 0  &kp GRAVE       &kp LBKT        &kp RBKT     &none                     &lt_repeat CURSOR BACKSPACE  &lt_repeat NUMBERS DEL  &none    &td_caps  &kp TAB        &lt_repeat SYMBOLS SPACE          &none        &kp LS(LPAR)  &kp LS(RPAR)     &none           &magic MAGIC 0
+&to 0       &none           &none           &none        &none                                                                                                                             &none        &none         &none            &none           &kp K_LOCK
+&none       &kp N1          &kp N2          &kp N3       &kp N4            &kp N5                                                                                                  &kp N6  &kp N7       &kp N8        &kp N9           &kp N0          &none
+&none       &kp Q           &kp W           &kp E        &kp R             &kp T                                                                                                   &kp Y   &kp U        &kp I         &kp O            &kp P           &none
+&none       &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LCTRL D  &mt LEFT_SHIFT F  &kp G                                                                                                   &kp H   &mt RSHFT J  &mt RCTRL K   &mt RIGHT_ALT L  &mt RMETA SEMI  &kp SQT
+&none       &kp Z           &kp X           &kp C        &kp V             &kp B   &lt_repeat 6 ESCAPE     &lang_toggle      &none    &none     &kp RC(SPACE)  &kp RET             &kp N   &kp M        &kp COMMA     &kp DOT          &kp FSLH        &none
+&magic 8 0  &kp GRAVE       &kp LBKT        &kp RBKT     &none                     &lt_repeat 2 BACKSPACE  &lt_repeat 3 DEL  &none    &td_caps  &kp TAB        &lt_repeat 4 SPACE          &none        &kp LS(LPAR)  &kp LS(RPAR)     &none           &magic 8 0
             >;
         };
 
@@ -175,20 +175,9 @@
             >;
         };
 
-        magic_layer {
-            bindings = <
-&trans       &none            &none            &none            &none                                                                                       &none  &none  &none  &bt BT_CLR  &bt BT_CLR_ALL
-&none        &none            &none            &none            &none            &none                                                               &none  &none  &none  &none  &none       &none
-&none        &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                     &none  &none  &none  &none  &none       &none
-&bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                     &none  &none  &none  &none  &none       &bootloader
-&sys_reset   &none            &none            &none            &none            &none            &bt_2  &bt_3  &none           &none  &none  &none  &none  &none  &none  &none  &none       &sys_reset
-&none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB    &none  &none  &none         &none  &none  &none  &none       &to FACTORY_TEST
-            >;
-        };
-
         cursor_layer {
             bindings = <
-&trans  &trans           &trans             &trans        &trans                                                                              &trans     &trans    &trans     &trans  &trans
+&trans  &trans           &trans             &trans        &trans                                                                              &trans     &trans    &trans     &trans  &kp K_COFFEE
 &trans  &trans           &trans             &trans        &trans         &trans                                                       &trans  &trans     &trans    &trans     &trans  &trans
 &trans  &trans           &kp LC(W)          &kp LA(LEFT)  &kp LA(RIGHT)  &kp LC(X)                                                    &none   &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
 &trans  &kp TAB          &kp LALT           &kp LCTRL     &kp LSHFT      &kp LC(C)                                                    &none   &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
@@ -231,6 +220,28 @@
 &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &kp W   &trans   &trans     &kt GRAVE  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &kp SQT  &kp SLASH  &trans     &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans  &trans   &trans     &trans     &trans
+            >;
+        };
+
+        system_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans  &trans  &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &kp F7  &kp F8  &kp F9  &kp F10  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F12  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans   &trans
+            >;
+        };
+
+        magic_layer {
+            bindings = <
+&trans       &none            &none            &none            &none                                                                                       &none  &none  &none  &bt BT_CLR  &bt BT_CLR_ALL
+&none        &none            &none            &none            &none            &none                                                               &none  &none  &none  &none  &none       &none
+&none        &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                     &none  &none  &none  &none  &none       &none
+&bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                     &none  &none  &none  &none  &none       &bootloader
+&sys_reset   &none            &none            &none            &none            &none            &bt_2  &bt_3  &none           &none  &none  &none  &none  &none  &none  &none  &none       &sys_reset
+&none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB    &none  &none  &none         &none  &none  &none  &none       &to 6
             >;
         };
 
