@@ -215,7 +215,7 @@
 &trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans   &trans     &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans   &trans     &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans   &trans     &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &kp W   &trans   &kp X      &kt GRAVE  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &kp W   &trans   &trans     &kt GRAVE  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &kp SQT  &kp SLASH  &trans     &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans  &trans   &trans     &trans     &trans
             >;
