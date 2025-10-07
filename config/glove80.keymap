@@ -130,7 +130,7 @@
                 <&macro_release>,
                 <&kp LGUI>,
                 <&macro_tap>,
-                <&tog HEBREW_LAYER>;
+                <&tog 3>;
         };
     };
 
@@ -138,8 +138,8 @@
         compatible = "zmk,conditional-layers";
 
         hebrew_symbols {
-            if-layers = <HEBREW_LAYER SYMBOLS_LAYER>;
-            then-layer = <HEBREW_SYMBOLS_LAYER>;
+            if-layers = <3 6>;
+            then-layer = <7>;
         };
     };
 
@@ -156,12 +156,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&to DEFAULT_LAYER                 &none           &none             &none              &none                                                                                                                                                                                    &none        &none         &none            &none        &kp LG(L)
-&none                             &kp N1          &kp N2            &kp N3             &kp N4            &kp N5                                                                                                                                                         &kp N6  &kp N7       &kp N8        &kp N9           &kp N0       &none
-&none                             &kp Q           &kp W             &kp F              &kp P             &kp B                                                                                                                                                          &kp J   &kp L        &kp U         &kp Y            &kp SEMI     &none
-&none                             &mt LEFT_GUI A  &mt LEFT_ALT R    &mt LCTRL S        &mt LEFT_SHIFT T  &kp G                                                                                                                                                          &kp M   &mt RSHFT N  &mt RCTRL E   &mt RIGHT_ALT I  &mt RMETA O  &kp X
-&none                             &kp Z           &kp X             &kp C              &kp D             &kp V   &lt_repeat SYSTEM_LAYER ESCAPE     &lt_repeat MOUSE_LAYER TAB    &lang_toggle    &none     &mt LG(LEFT_ALT) RC(SPACE)  &kp RET                         &kp K   &kp H        &kp COMMA     &kp DOT          &kp FSLH     &none
-&magic MAGIC_LAYER DEFAULT_LAYER  &kp GRAVE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LC(V)                 &lt_repeat CURSOR_LAYER BACKSPACE  &lt_repeat NUMBERS_LAYER DEL  &none           &td_caps  &kp TAB                     &lt_repeat SYMBOLS_LAYER SPACE          &kp LC(Z)    &kp LS(LPAR)  &kp LS(RPAR)     &kp LC(Y)    &magic MAGIC_LAYER DEFAULT_LAYER
+&to 0                   &none           &none             &none              &none                                                                                                                                                 &none        &none         &none            &none        &kp LG(L)
+&none                   &kp N1          &kp N2            &kp N3             &kp N4            &kp N5                                                                                                                      &kp N6  &kp N7       &kp N8        &kp N9           &kp N0       &none
+&none                   &kp Q           &kp W             &kp F              &kp P             &kp B                                                                                                                       &kp J   &kp L        &kp U         &kp Y            &kp SEMI     &none
+&none                   &mt LEFT_GUI A  &mt LEFT_ALT R    &mt LCTRL S        &mt LEFT_SHIFT T  &kp G                                                                                                                       &kp M   &mt RSHFT N  &mt RCTRL E   &mt RIGHT_ALT I  &mt RMETA O  &kp APOS
+&none                   &kp Z           &kp X             &kp C              &kp D             &kp V   &lt_repeat 8 ESCAPE     &lt_repeat 9 TAB  &lang_toggle    &none     &mt LG(LEFT_ALT) RC(SPACE)  &kp RET             &kp K   &kp H        &kp COMMA     &kp DOT          &kp FSLH     &none
+&magic 1 DEFAULT_LAYER  &kp GRAVE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LC(V)                 &lt_repeat 4 BACKSPACE  &lt_repeat 5 DEL  &none           &td_caps  &kp TAB                     &lt_repeat 6 SPACE          &kp LC(Z)    &kp LS(LPAR)  &kp LS(RPAR)     &kp LC(Y)    &magic 1 DEFAULT_LAYER
             >;
         };
 
@@ -172,18 +172,18 @@
 &none        &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                     &none  &none  &none  &none  &none       &none
 &bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                     &none  &none  &none  &none  &none       &bootloader
 &sys_reset   &none            &none            &none            &none            &none            &bt_2  &bt_3  &none           &none  &none  &none  &none  &none  &none  &none  &none       &sys_reset
-&none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB    &none  &none  &none         &none  &none  &none  &none       &to FACTORY_TEST_LAYER
+&none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB    &none  &none  &none         &none  &none  &none  &none       &to 2
             >;
         };
 
         factory_test_layer {
             bindings = <
-&to DEFAULT_LAYER  &kp N6  &kp N2  &kp N8  &kp N4                                                                    &kp N4  &kp N8  &kp N2  &kp N6  &kp N0
-&kp N1             &kp N7  &kp N3  &kp N9  &kp N5  &kp N0                                                    &kp N0  &kp N5  &kp N9  &kp N3  &kp N7  &kp N1
-&kp N2             &kp N8  &kp N4  &kp N0  &kp N6  &kp N1                                                    &kp N1  &kp N6  &kp N0  &kp N4  &kp N8  &kp N2
-&kp N3             &kp N9  &kp N5  &kp N1  &kp N7  &kp N2                                                    &kp N2  &kp N7  &kp N1  &kp N5  &kp N9  &kp N3
-&kp N4             &kp N0  &kp N6  &kp N2  &kp N8  &kp N3  &kp N4  &kp N5  &kp N6    &kp N6  &kp N5  &kp N4  &kp N3  &kp N8  &kp N2  &kp N6  &kp N0  &kp N4
-&kp N5             &kp N1  &kp N7  &kp N3  &kp N9          &kp N7  &kp N8  &kp N9    &kp N9  &kp N8  &kp N7          &kp N9  &kp N3  &kp N7  &kp N1  &kp N5
+&to 0   &kp N6  &kp N2  &kp N8  &kp N4                                                                    &kp N4  &kp N8  &kp N2  &kp N6  &kp N0
+&kp N1  &kp N7  &kp N3  &kp N9  &kp N5  &kp N0                                                    &kp N0  &kp N5  &kp N9  &kp N3  &kp N7  &kp N1
+&kp N2  &kp N8  &kp N4  &kp N0  &kp N6  &kp N1                                                    &kp N1  &kp N6  &kp N0  &kp N4  &kp N8  &kp N2
+&kp N3  &kp N9  &kp N5  &kp N1  &kp N7  &kp N2                                                    &kp N2  &kp N7  &kp N1  &kp N5  &kp N9  &kp N3
+&kp N4  &kp N0  &kp N6  &kp N2  &kp N8  &kp N3  &kp N4  &kp N5  &kp N6    &kp N6  &kp N5  &kp N4  &kp N3  &kp N8  &kp N2  &kp N6  &kp N0  &kp N4
+&kp N5  &kp N1  &kp N7  &kp N3  &kp N9          &kp N7  &kp N8  &kp N9    &kp N9  &kp N8  &kp N7          &kp N9  &kp N3  &kp N7  &kp N1  &kp N5
             >;
         };
 
