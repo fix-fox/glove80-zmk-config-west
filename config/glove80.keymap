@@ -147,10 +147,11 @@
         };
 
         // Delete to beginning of line (Ctrl+U - "kill line backward")
+
         delete_to_bol: delete_to_bol {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&macro_press>,
                 <&kp LSHFT>,
                 <&macro_tap>,
@@ -162,10 +163,11 @@
         };
 
         // Delete to end of line (Ctrl+K - "kill line")
+
         delete_to_eol: delete_to_eol {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&macro_press>,
                 <&kp LSHFT>,
                 <&macro_tap>,
@@ -177,10 +179,11 @@
         };
 
         // Delete entire line
+
         delete_line: delete_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&macro_tap>,
                 <&kp HOME>,
                 <&macro_press>,
@@ -194,10 +197,11 @@
         };
 
         // Delete word forward (Ctrl+D or Alt+D)
+
         delete_word_forward: delete_word_forward {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&macro_press>,
                 <&kp LCTRL &kp LSHFT>,
                 <&macro_tap>,
@@ -209,10 +213,11 @@
         };
 
         // Delete word backward (Ctrl+W or Ctrl+Backspace)
+
         delete_word_backward: delete_word_backward {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
                 <&macro_tap>,
@@ -254,12 +259,12 @@
 
         default_layer {
             bindings = <
-&to 0                   &to 10          &none             &none              &none                                                                                                                                                 &none            &none         &none            &none        &kp LG(L)
-&none                   &kp N1          &kp N2            &kp N3             &kp N4            &kp N5                                                                                                                      &kp N6  &kp N7           &kp N8        &kp N9           &kp N0       &none
-&none                   &kp Q           &kp W             &kp F              &kp P             &kp B                                                                                                                       &kp J   &kp L            &kp U         &kp Y            &kp SEMI     &none
-&none                   &mt LEFT_GUI A  &mt LEFT_ALT R    &mt LCTRL S        &mt LEFT_SHIFT T  &kp G                                                                                                                       &kp M   &mt RSHFT N      &mt RCTRL E   &mt RIGHT_ALT I  &mt RMETA O  &kp APOS
-&none                   &kp Z           &kp X             &kp C              &lt_repeat 11 D   &kp V   &lt_repeat 8 ESCAPE     &lt_repeat 9 TAB  &lang_toggle    &none     &mt LG(LEFT_ALT) RC(SPACE)  &kp RET             &kp K   &lt_repeat 11 H  &kp COMMA     &kp DOT          &kp FSLH     &none
-&magic 1 DEFAULT_LAYER  &kp GRAVE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LC(V)                 &lt_repeat 4 BACKSPACE  &lt_repeat 5 DEL  &none           &td_caps  &kp TAB                     &lt_repeat 6 SPACE          &kp LC(Z)        &kp LS(LPAR)  &kp LS(RPAR)     &kp LC(Y)    &magic 1 DEFAULT_LAYER
+&to 0                   &to 10          &none             &none              &none                                                                                                                                                                          &none            &none         &none            &none        &kp LG(L)
+&none                   &kp N1          &kp N2            &kp N3             &kp N4            &kp N5                                                                                                                                  &kp N6               &kp N7           &kp N8        &kp N9           &kp N0       &none
+&none                   &kp Q           &kp W             &kp F              &kp P             &kp B                                                                                                                                   &kp J                &kp L            &kp U         &kp Y            &kp SEMI     &none
+&none                   &mt LEFT_GUI A  &mt LEFT_ALT R    &mt LCTRL S        &mt LEFT_SHIFT T  &mt LG(LEFT_ALT) G                                                                                                                      &mt RG(RIGHT_ALT) M  &mt RSHFT N      &mt RCTRL E   &mt RIGHT_ALT I  &mt RMETA O  &kp APOS
+&none                   &kp Z           &kp X             &kp C              &lt_repeat 11 D   &kp V               &lt_repeat 8 ESCAPE     &lt_repeat 9 TAB  &lang_toggle    &none     &mt LG(LEFT_ALT) RC(SPACE)  &kp RET             &kp K                &lt_repeat 11 H  &kp COMMA     &kp DOT          &kp FSLH     &none
+&magic 1 DEFAULT_LAYER  &kp GRAVE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LC(V)                             &lt_repeat 4 BACKSPACE  &lt_repeat 5 DEL  &none           &td_caps  &kp TAB                     &lt_repeat 6 SPACE                       &kp LC(Z)        &kp LS(LPAR)  &kp LS(RPAR)     &kp LC(Y)    &magic 1 DEFAULT_LAYER
             >;
         };
 
@@ -390,11 +395,11 @@
 
         macros_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                                                          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans        &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                                                                                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans          &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
