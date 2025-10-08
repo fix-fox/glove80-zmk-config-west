@@ -146,11 +146,11 @@
                 <&tog 3>;
         };
 
-        delete_line: delete_line {
-            label = "DELETE_LINE";
+        // Delete to beginning of line (Ctrl+U - "kill line backward")
+        delete_to_bol: delete_to_bol {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
+            bindings = 
                 <&macro_press>,
                 <&kp LSHFT>,
                 <&macro_tap>,
@@ -159,6 +159,66 @@
                 <&kp LSHFT>,
                 <&macro_tap>,
                 <&kp BSPC>;
+        };
+
+        // Delete to end of line (Ctrl+K - "kill line")
+        delete_to_eol: delete_to_eol {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = 
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp END>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp BSPC>;
+        };
+
+        // Delete entire line
+        delete_line: delete_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = 
+                <&macro_tap>,
+                <&kp HOME>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp END>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp BSPC &kp DEL>;
+        };
+
+        // Delete word forward (Ctrl+D or Alt+D)
+        delete_word_forward: delete_word_forward {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = 
+                <&macro_press>,
+                <&kp LCTRL &kp LSHFT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LCTRL &kp LSHFT>,
+                <&macro_tap>,
+                <&kp BSPC>;
+        };
+
+        // Delete word backward (Ctrl+W or Ctrl+Backspace)
+        delete_word_backward: delete_word_backward {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = 
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp BSPC>,
+                <&macro_release>,
+                <&kp LCTRL>;
         };
     };
 
@@ -335,7 +395,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans        &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &delete_line  &trans  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
