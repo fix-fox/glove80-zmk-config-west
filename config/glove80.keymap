@@ -83,11 +83,13 @@
         };
 
         // Custom mod-morph for Q key: q normally, ? with shift
+
         q_qmark: q_question_mark {
             compatible = "zmk,behavior-mod-morph";
             label = "Q_QMARK";
             #binding-cells = <0>;
             bindings = <&kp Q>, <&kp LS(FSLH)>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -226,12 +228,12 @@
 
         symbols_layer {
             bindings = <
-&trans  &trans        &trans        &trans         &trans                                                                                        &trans        &trans        &trans         &trans         &trans
-&trans  &trans        &trans        &trans         &trans         &trans                                                          &trans         &trans        &trans        &trans         &trans         &trans
-&kp X   &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)   &kp LS(PRCNT)                                                   &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)  &kp LS(PIPE)   &kp LS(TILDE)  &trans
-&kp X   &kp BSLH      &kp EQUAL     &kp MINUS      &kp LS(UNDER)  &kp GRAVE                                                       &kp SQT        &kp LS(DQT)   &kp LS(PLUS)  &kp LS(QMARK)  &kp FSLH       &trans
-&trans  &kp LS(LT)    &kp LS(LBRC)  &kp LBKT       &kp LS(LPAR)   &kp SEMI       &kp X  &trans  &trans    &trans  &trans  &trans  &kp LS(COLON)  &kp LS(RPAR)  &kp RBKT      &kp LS(RBRC)   &kp LS(GT)     &kp X
-&trans  &trans        &trans        &trans         &trans                        &kp X  &kp X   &trans    &trans  &trans  &trans                 &kp LC(Z)     &kp LC(Y)     &trans         &trans         &trans
+&trans  &trans        &trans        &trans         &trans                                                                                        &trans        &trans        &trans        &trans      &trans
+&trans  &trans        &trans        &trans         &trans         &trans                                                          &trans         &trans        &trans        &trans        &trans      &trans
+&kp X   &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)   &kp LS(PRCNT)                                                   &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)  &kp LS(PIPE)  &trans      &trans
+&kp X   &kp BSLH      &kp EQUAL     &kp MINUS      &kp LS(UNDER)  &kp GRAVE                                                       &kp SQT        &kp LS(DQT)   &kp LS(PLUS)  &kp TILDE     &kp FSLH    &trans
+&trans  &kp LS(LT)    &kp LS(LBRC)  &kp LBKT       &kp LS(LPAR)   &kp SEMI       &kp X  &trans  &trans    &trans  &trans  &trans  &kp LS(COLON)  &kp LS(RPAR)  &kp RBKT      &kp LS(RBRC)  &kp LS(GT)  &kp X
+&trans  &trans        &trans        &trans         &trans                        &kp X  &kp X   &trans    &trans  &trans  &trans                 &kp LC(Z)     &kp LC(Y)     &trans        &trans      &trans
             >;
         };
 
