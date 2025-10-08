@@ -217,12 +217,12 @@
 
         symbols_layer {
             bindings = <
-&trans         &trans         &trans        &trans         &trans                                                                                                &trans        &trans        &trans        &trans         &trans
-&trans         &trans         &trans        &trans         &trans        &trans                                                                   &trans         &trans        &trans        &trans        &trans         &trans
-&kp LS(LBRC)   &kp LBKT       &kp LS(LPAR)  &kp LS(RPAR)   &kp RBKT      &kp LS(RBRC)                                                             &trans         &kp LS(AMPS)  &kp LS(STAR)  &kp LS(PIPE)  &trans         &trans
-&kp LS(POUND)  &kp LS(CARET)  &kp EQUAL     &kp LS(UNDER)  &kp LS(DLLR)  &kp LS(STAR)                                                             &kp BSLH       &kp SQT       &kp DQT       &kp GRAVE     &kp SEMICOLON  &trans
-&trans         &kp LS(LT)     &kp LS(PLUS)  &kp MINUS      &kp LS(GT)    &trans        &kp LS(COLON)    &trans  &trans    &trans  &trans  &trans  &kp LS(TILDE)  &kp FSLH      &kp COMMA     &kp DOT       &kp LS(QMARK)  &trans
-&trans         &trans         &trans        &trans         &trans                      &kp EXCLAMATION  &kp AT  &trans    &trans  &trans  &trans                 &kp LC(Z)     &kp LC(Y)     &trans        &trans         &trans
+&trans  &trans        &trans        &trans         &trans                                                                                        &trans        &trans        &trans         &trans         &trans
+&trans  &trans        &trans        &trans         &trans         &trans                                                          &trans         &trans        &trans        &trans         &trans         &trans
+&kp X   &kp LS(EXCL)  &kp LS(AT)    &kp LS(POUND)  &kp LS(DLLR)   &kp LS(PRCNT)                                                   &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)  &kp LS(PIPE)   &kp LS(TILDE)  &trans
+&kp X   &kp BSLH      &kp EQUAL     &kp MINUS      &kp LS(UNDER)  &kp GRAVE                                                       &kp SQT        &kp LS(DQT)   &kp LS(PLUS)  &kp LS(QMARK)  &kp FSLH       &trans
+&trans  &kp LS(LT)    &kp LS(LBRC)  &kp LBKT       &kp LS(LPAR)   &kp SEMI       &kp X  &trans  &trans    &trans  &trans  &trans  &kp LS(COLON)  &kp LS(RPAR)  &kp RBKT      &kp LS(RBRC)   &kp LS(GT)     &kp X
+&trans  &trans        &trans        &trans         &trans                        &kp X  &kp X   &trans    &trans  &trans  &trans                 &kp LC(Z)     &kp LC(Y)     &trans         &trans         &trans
             >;
         };
 
