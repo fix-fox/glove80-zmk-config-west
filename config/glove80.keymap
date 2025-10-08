@@ -150,7 +150,7 @@
             label = "DELETE_LINE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
+            bindings =
                 <&macro_press>,
                 <&kp LSHFT>,
                 <&macro_tap>,
@@ -173,17 +173,17 @@
 
     combos {
         compatible = "zmk,combos";
-        
+
         combo_macros_right {
             timeout-ms = <50>;
-            key-positions = <42 43>;  // N (RSHFT), E (RCTRL)
+            key-positions = <42 41>;  // N (RSHFT), E (RCTRL)
             bindings = <&mo MACROS_LAYER>;
             layers = <0>;
         };
-        
+
         combo_macros_left {
             timeout-ms = <50>;
-            key-positions = <38 39>;  // S (LCTRL), T (LSHFT)
+            key-positions = <38 37>;  // S (LCTRL), T (LSHFT)
             bindings = <&mo MACROS_LAYER>;
             layers = <0>;
         };
@@ -325,6 +325,17 @@
 &kp ESC     &kp A     &kp S    &kp D     &kp F      &kp G                                                                          &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
 &kp GRAVE   &kp Z     &kp X    &kp C     &kp V      &kp B   &kp LSHFT  &kp LCTRL  &kp LEFT_GUI    &kp RMETA  &kp RCTRL  &kp RSHFT  &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp PG_UP
 &magic 1 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT          &kp BSPC   &kp DEL    &kp LALT        &kp RALT   &kp RET    &kp SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp PG_DN
+            >;
+        };
+
+        macros_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                                                                          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans        &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &delete_line  &trans  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
