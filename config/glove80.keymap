@@ -81,6 +81,15 @@
             hold-trigger-on-release;
             bindings = <&mo>, <&kp>;
         };
+
+        // Custom mod-morph for Q key: q normally, ? with shift
+        q_qmark: q_question_mark {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Q_QMARK";
+            #binding-cells = <0>;
+            bindings = <&kp Q>, <&kp LS(FSLH)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     macros {
@@ -151,7 +160,7 @@
             bindings = <
 &to 0                   &to 10          &none             &none              &none                                                                                                                                                 &none        &none         &none            &none        &kp LG(L)
 &none                   &kp N1          &kp N2            &kp N3             &kp N4            &kp N5                                                                                                                      &kp N6  &kp N7       &kp N8        &kp N9           &kp N0       &none
-&none                   &kp Q           &kp W             &kp F              &kp P             &kp B                                                                                                                       &kp J   &kp L        &kp U         &kp Y            &kp SEMI     &none
+&none                   &q_qmark        &kp W             &kp F              &kp P             &kp B                                                                                                                       &kp J   &kp L        &kp U         &kp Y            &kp SEMI     &none
 &none                   &mt LEFT_GUI A  &mt LEFT_ALT R    &mt LCTRL S        &mt LEFT_SHIFT T  &kp G                                                                                                                       &kp M   &mt RSHFT N  &mt RCTRL E   &mt RIGHT_ALT I  &mt RMETA O  &kp APOS
 &none                   &kp Z           &kp X             &kp C              &kp D             &kp V   &lt_repeat 8 ESCAPE     &lt_repeat 9 TAB  &lang_toggle    &none     &mt LG(LEFT_ALT) RC(SPACE)  &kp RET             &kp K   &kp H        &kp COMMA     &kp DOT          &kp FSLH     &none
 &magic 1 DEFAULT_LAYER  &kp GRAVE       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LC(V)                 &lt_repeat 4 BACKSPACE  &lt_repeat 5 DEL  &none           &td_caps  &kp TAB                     &lt_repeat 6 SPACE          &kp LC(Z)    &kp LS(LPAR)  &kp LS(RPAR)     &kp LC(Y)    &magic 1 DEFAULT_LAYER
