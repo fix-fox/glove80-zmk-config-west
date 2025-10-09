@@ -39,15 +39,15 @@
 // Sometimes it fires too eagerly, when for example I'm rolling my fingers on asdf.
 // I suspect what happens is that I press two of the chars at the same time so it's interpreted as a double hold.
 // Let's still try it out for a while.
-
-&mt {
-    quick-tap-ms = <HT_QUICK_TAP_MS>;
-    require-prior-idle-ms = <HT_PRIOR_IDLE_MS>;
-    tapping-term-ms = <HT_TAPPING_TERM_MS>;
-    flavor =
-    HT_FLAVOR;
-    hold-trigger-on-release;
-};
+// Update: I switched to Ben Frain's hml and hmr.
+// &mt {
+//     quick-tap-ms = <HT_QUICK_TAP_MS>;
+//     require-prior-idle-ms = <HT_PRIOR_IDLE_MS>;
+//     tapping-term-ms = <HT_TAPPING_TERM_MS>;
+//     flavor =
+//     HT_FLAVOR;
+//     hold-trigger-on-release;
+// };
 
 / {
     behaviors {
@@ -286,8 +286,8 @@
 &to 0                   &to 10          &none           &none             &none                                                                                                                                                                              &none                  &none              &none            &none        &kp LG(L)
 &none                   &kp N1          &kp N2          &kp N3            &kp N4                &kp N5                                                                                                                                  &kp N6               &kp N7                 &kp N8             &kp N9           &kp N0       &none
 &none                   &kp Q           &kp W           &kp F             &kp P                 &kp B                                                                                                                                   &kp J                &kp L                  &kp U              &kp Y            &kp SEMI     &none
-&none                   &mt LEFT_GUI A  &mt LEFT_ALT R  &mt LCTRL S       &mt LEFT_SHIFT T      &mt LG(LEFT_ALT) G                                                                                                                      &mt RG(RIGHT_ALT) M  &mt RSHFT N            &mt RCTRL E        &mt RIGHT_ALT I  &mt RMETA O  &kp APOS
-&none                   &kp Z           &kp X           &kp C             &lt_repeat 11 D       &kp V               &lt_repeat 8 ESCAPE     &lt_repeat 9 TAB  &lang_toggle    &none     &mt LG(LEFT_ALT) RC(SPACE)  &kp RET             &kp K                &lt_repeat 11 H        &kp COMMA          &kp DOT          &kp FSLH     &none
+&none                   &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S       &hml LEFT_SHIFT T      &hml LG(LEFT_ALT) G                                                                                                                      &hmr RG(RIGHT_ALT) M  &hmr RSHFT N            &hmr RCTRL E        &hmr RIGHT_ALT I  &hmr RMETA O  &kp APOS
+&none                   &kp Z           &kp X           &kp C             &lt_repeat 11 D       &kp V               &lt_repeat 8 ESCAPE     &lt_repeat 9 TAB  &lang_toggle    &none     &kp RC(SPACE)  &kp RET             &kp K                &lt_repeat 11 H        &kp COMMA          &kp DOT          &kp FSLH     &none
 &magic 1 DEFAULT_LAYER  &kp GRAVE       &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS                      &lt_repeat 4 BACKSPACE  &lt_repeat 5 DEL  &none           &td_caps  &kp TAB                     &lt_repeat 6 SPACE                       &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp TILDE    &magic 1 DEFAULT_LAYER
             >;
         };
@@ -321,7 +321,7 @@
 &trans  &trans      &trans     &trans  &trans                                                                          &trans  &trans    &trans     &trans    &trans
 &trans  &trans      &trans     &trans  &trans  &trans                                                          &trans  &trans  &trans    &trans     &trans    &trans
 &trans  &kp PERIOD  &kp COMMA  &kp E   &kp R   &kp T                                                           &kp Y   &kp U   &kp I     &kp O      &kp P     &trans
-&trans  &kp A       &kp S      &kp D   &kp F   &kp G                                                           &kp H   &kp J   &kp K     &kp L      &kp SEMI  &kp APOS
+&trans  &hml LEFT_GUI A  &hml LEFT_ALT S  &hml LCTRL D       &hml LEFT_SHIFT F      &hml LG(LEFT_ALT) G                                                           &hmr RG(RIGHT_ALT) H  &hmr RSHFT J            &hmr RCTRL K        &hmr RIGHT_ALT L  &hmr RMETA SEMI  &kp APOS
 &trans  &kp Z       &kp X      &kp C   &kp V   &kp B   &kp X   &lang_toggle  &trans    &trans  &trans  &trans  &kp N   &kp M   &kp APOS  &kp SLASH  &q_qmark  &trans
 &trans  &trans      &trans     &trans  &trans          &trans  &trans        &trans    &trans  &trans  &trans          &trans  &trans    &trans     &trans    &trans
             >;
