@@ -398,23 +398,23 @@
 
         numbers_layer {
             bindings = <
-&trans  &trans  &trans        &trans     &trans                                                                                                  &trans     &trans  &trans  &trans         &trans
-&trans  &trans  &trans        &trans     &trans          &trans                                                                        &trans    &kp CARET  &trans  &trans  &trans         &trans
-&trans  &trans  &kp LC(Y)     &kp LC(Z)  &trans          &trans                                                                        &trans    &kp N7     &kp N8  &kp N9  &kp LS(COLON)  &kp LS(PRCNT)
-&trans  &trans  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &trans                                                                        &kp PLUS  &kp N4     &kp N5  &kp N6  &kp MINUS      &kp LS(PLUS)
-&trans  &trans  &trans        &trans     &trans          &trans  &trans  &trans  &trans    &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL  &trans    &kp N1     &kp N2  &kp N3  &kp FSLH       &kp LS(STAR)
-&trans  &trans  &trans        &trans     &trans                  &trans  &trans  &trans    &kp COMMA      &kp DOT           &kp N0               &trans     &trans  &trans  &trans         &trans
+&trans  &trans  &trans        &trans     &trans                                                                                                  &trans     &trans  &trans  &trans     &trans
+&trans  &trans  &trans        &trans     &trans          &trans                                                                        &trans    &kp CARET  &trans  &trans  &trans     &trans
+&trans  &trans  &kp LC(Y)     &kp LC(Z)  &trans          &trans                                                                        &trans    &kp N7     &kp N8  &kp N9  &kp COLON  &kp PERCENT
+&trans  &trans  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &trans                                                                        &kp PLUS  &kp N4     &kp N5  &kp N6  &kp MINUS  &trans
+&trans  &trans  &trans        &trans     &trans          &trans  &trans  &trans  &trans    &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL  &trans    &kp N1     &kp N2  &kp N3  &kp FSLH   &kp LS(STAR)
+&trans  &trans  &trans        &trans     &trans                  &trans  &to 0   &trans    &kp COMMA      &kp DOT           &kp N0               &trans     &trans  &trans  &trans     &trans
             >;
         };
 
         symbols_layer {
             bindings = <
-&trans  &trans         &trans          &trans     &trans                                                                                             &trans                 &trans     &trans           &trans            &trans
-&trans  &trans         &trans          &trans     &trans                &trans                                                            &trans     &trans                 &trans     &trans           &trans            &trans
-&kp X   &kp EXCL       &kp AT          &kp POUND  &kp DLLR              &kp PERCENT                                                       &kp CARET  &kp AMPS               &kp STAR   &kp PIPE         &trans            &trans
-&kp X   &kp BSLH       &kp EQUAL       &kp MINUS  &kp UNDER             &kp GRAVE                                                         &kp SQT    &kp DOUBLE_QUOTES      &kp PLUS   &kp TILDE        &kp FSLH          &trans
-&trans  &kp LESS_THAN  &kp LEFT_BRACE  &kp LBKT   &kp LEFT_PARENTHESIS  &kp SEMI     &kp X      &trans  &trans    &trans  &trans  &trans  &kp COLON  &kp RIGHT_PARENTHESIS  &kp RBKT   &kp RIGHT_BRACE  &kp GREATER_THAN  &kp X
-&trans  &trans         &trans          &trans     &trans                             &kp LCTRL  &kp X   &trans    &trans  &trans  &trans             &kp LC(Z)              &kp LC(Y)  &trans           &trans            &trans
+&trans  &trans         &trans          &trans     &trans                                                                                          &trans                 &trans     &trans           &trans            &trans
+&trans  &trans         &trans          &trans     &trans                &trans                                                         &trans     &trans                 &trans     &trans           &trans            &trans
+&kp X   &kp EXCL       &kp AT          &kp POUND  &kp DLLR              &kp PERCENT                                                    &kp CARET  &kp AMPS               &kp STAR   &kp PIPE         &trans            &trans
+&kp X   &kp BSLH       &kp EQUAL       &kp MINUS  &kp UNDER             &kp GRAVE                                                      &kp SQT    &kp DOUBLE_QUOTES      &kp PLUS   &kp TILDE        &kp FSLH          &trans
+&trans  &kp LESS_THAN  &kp LEFT_BRACE  &kp LBKT   &kp LEFT_PARENTHESIS  &kp SEMI     &trans  &trans  &trans    &trans  &trans  &trans  &kp COLON  &kp RIGHT_PARENTHESIS  &kp RBKT   &kp RIGHT_BRACE  &kp GREATER_THAN  &kp X
+&trans  &trans         &trans          &trans     &trans                             &to 5   &trans  &trans    &trans  &trans  &trans             &kp LC(Z)              &kp LC(Y)  &trans           &trans            &trans
             >;
         };
 
