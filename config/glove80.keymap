@@ -477,12 +477,12 @@
 
         macros_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                                                                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                                                                                            &trans  &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                    &trans          &trans  &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                    &trans          &trans  &delete_to_bol  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                    &trans          &trans  &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans    &trans  &trans  &trans  &delete_to_eol  &trans  &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans                  &trans  &trans          &trans  &trans  &trans
             >;
         };
     };
