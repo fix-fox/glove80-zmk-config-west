@@ -34,7 +34,8 @@
 #define HT_PRIOR_IDLE_MS 130
 #define HT_FLAVOR "balanced"
 #define HT_TAPPING_TERM_MS 200
-#define HT_INDEX_MS 180  // Strongest fingers
+#define HT_THUMB_MS 150  // Strongest fingers
+#define HT_INDEX_MS 180
 #define HT_MIDDLE_MS 190
 #define HT_RING_MS 220
 #define HT_PINKY_MS 280
@@ -62,21 +63,6 @@
             #binding-cells = <0>;
             tapping-term-ms = <HT_TAPPING_TERM_MS>;
             bindings = <&caps_word>, <&kp CLCK>;
-        };
-
-        // Enhanced layer-tap with quick-tap for natural key repeat
-
-        lt_repeat: layer_tap_repeat {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_REPEAT";
-            #binding-cells = <2>;
-            flavor =
-            HT_FLAVOR;
-            tapping-term-ms = <HT_TAPPING_TERM_MS>;
-            quick-tap-ms = <HT_QUICK_TAP_MS>;
-            require-prior-idle-ms = <HT_PRIOR_IDLE_MS>;
-            hold-trigger-on-release;
-            bindings = <&mo>, <&kp>;
         };
 
         // Custom mod-morph for Q key: q normally, ? with shift
@@ -169,6 +155,21 @@
             bindings = <&kp N9>, <&kp F9>;
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Enhanced layer-tap with quick-tap for natural key repeat
+
+        lt_repeat: layer_tap_repeat {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_REPEAT";
+            #binding-cells = <2>;
+            flavor =
+            HT_FLAVOR;
+            tapping-term-ms = <HT_THUMB_MS>;
+            quick-tap-ms = <HT_QUICK_TAP_MS>;
+            require-prior-idle-ms = <HT_PRIOR_IDLE_MS>;
+            hold-trigger-on-release;
+            bindings = <&mo>, <&kp>;
         };
 
         hml: hml {
@@ -405,7 +406,7 @@
                 <&kp LSHFT>;
         };
 
-        // Opens a new browser tab (Ctrl+T) and taps "@gemini <TAB>"
+        // Opens a new browser tab (Ctrl+T) and taps "@gemini<TAB>"
 
         gemini_tab: gemini_tab {
             compatible = "zmk,behavior-macro";
