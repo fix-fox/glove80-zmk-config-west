@@ -474,7 +474,7 @@
 &none                   &kp Q              &kp W            &kp F             &kp P                 &kp B                                                                                                                         &kp J                   &kp L                  &kp U              &kp Y             &kp SEMI        &none
 &none                   &hmp_l LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S      &hmi_l LEFT_SHIFT T   &hmi_l LG(LEFT_ALT) G                                                                                                         &hmi_r RG(RIGHT_ALT) M  &hmi_r RSHFT N         &hml RCTRL E       &hmr RIGHT_ALT I  &hmp_r RMETA O  &kp APOS
 &none                   &kp Z              &kp X            &kp C             &lt_repeat 11 D       &kp V                  &lt_repeat 5 ESCAPE     &lt_repeat 9 TAB  &lang_toggle    &none     &kp RC(SPACE)  &kp RET             &kp K                   &lt_repeat 11 H        &kp COMMA          &kp DOT           &kp FSLH        &none
-&magic 1 DEFAULT_LAYER  &kp GRAVE          &kp LEFT_BRACE   &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS                         &lt_repeat 4 BACKSPACE  &lt_repeat 8 DEL  &none           &td_caps  &kp TAB        &lt_repeat 6 SPACE                          &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE   &kp TILDE       &magic 1 DEFAULT_LAYER
+&magic 1 DEFAULT_LAYER  &kp GRAVE          &kp LEFT_BRACE   &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS                         &lt_repeat 4 BACKSPACE  &lt_repeat 8 DEL  &kp LG(H)       &td_caps  &kp TAB        &lt_repeat 6 SPACE                          &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp RIGHT_BRACE   &kp TILDE       &magic 1 DEFAULT_LAYER
             >;
         };
 
