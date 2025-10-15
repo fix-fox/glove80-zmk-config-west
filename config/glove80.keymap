@@ -435,6 +435,22 @@
                 <&macro_tap>,
                 <&kp TAB>;
         };
+
+        flow_bookmark: flow_bookmark {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp B &kp SPACE>;
+
+            label = "FLOW_BOOKMARK";
+        };
     };
 
     conditional_layers {
@@ -605,12 +621,12 @@
 
         macros_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                                                                                  &trans        &trans          &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans        &trans                                                                    &trans          &trans        &trans          &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans        &trans                                                                    &trans          &select_line  &delete_to_bol  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans        &trans                                                                    &trans          &trans        &trans          &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &lang_toggle  &trans  &trans          &trans          &trans    &trans  &trans  &trans  &delete_to_eol  &lang_toggle  &trans          &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans                  &trans        &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                                                                                                          &trans        &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans        &trans                                                                            &trans          &trans        &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans        &flow_bookmark                                                                    &trans          &select_line  &delete_to_bol  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans        &trans                                                                            &trans          &trans        &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &lang_toggle  &trans          &trans          &trans          &trans    &trans  &trans  &trans  &delete_to_eol  &lang_toggle  &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                        &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans                  &trans        &trans          &trans  &trans  &trans
             >;
         };
     };
