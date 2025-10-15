@@ -404,6 +404,36 @@
                 <&macro_release>,
                 <&kp LSHFT>;
         };
+
+        // Opens a new browser tab (Ctrl+T) and taps "@gemini <TAB>"
+
+        gemini_tab: gemini_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp T>,
+                <&macro_release>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp AT>,
+                <&macro_tap>,
+                <&kp G>,
+                <&macro_tap>,
+                <&kp E>,
+                <&macro_tap>,
+                <&kp M>,
+                <&macro_tap>,
+                <&kp I>,
+                <&macro_tap>,
+                <&kp N>,
+                <&macro_tap>,
+                <&kp I>,
+                <&macro_tap>,
+                <&kp TAB>;
+        };
     };
 
     conditional_layers {
