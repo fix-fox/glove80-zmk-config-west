@@ -520,12 +520,12 @@
             // Hebrew base layer - identical to English QWERTY for Hebrew typing
 
             bindings = <
-&trans  &trans             &trans           &trans        &trans                                                                                                                      &trans           &trans        &trans            &trans             &trans
-&trans  &trans             &trans           &trans        &trans               &trans                                                                         &trans                  &trans           &trans        &trans            &trans             &trans
-&trans  &kp PERIOD         &kp COMMA        &kp E         &kp R                &kp T                                                                          &kp Y                   &kp U            &kp I         &kp O             &kp P              &trans
-&trans  &hmp_l LEFT_GUI A  &hml LEFT_ALT S  &hml LCTRL D  &hmi_l LEFT_SHIFT F  &hmi_l LG(LEFT_ALT) G                                                          &hmi_r RG(RIGHT_ALT) H  &hmi_r RSHFT J   &hml RCTRL K  &hmr RIGHT_ALT L  &hmp_r RMETA SEMI  &kp APOS
-&trans  &kp Z              &kp X            &kp C         &lt_repeat 11 V      &kp B                  &kp X   &lang_toggle  &trans    &trans  &trans  &trans  &kp N                   &lt_repeat 11 M  &kp APOS      &kp SLASH         &q_qmark           &trans
-&trans  &trans             &trans           &trans        &trans                                      &trans  &trans        &trans    &trans  &trans  &trans                          &trans           &trans        &trans            &trans             &trans
+&trans  &trans             &trans           &trans        &trans                                                                                                                &trans           &trans        &trans            &trans             &trans
+&trans  &trans             &trans           &trans        &trans               &trans                                                                   &trans                  &trans           &trans        &trans            &trans             &trans
+&trans  &kp PERIOD         &kp COMMA        &kp E         &kp R                &kp T                                                                    &kp Y                   &kp U            &kp I         &kp O             &kp P              &trans
+&trans  &hmp_l LEFT_GUI A  &hml LEFT_ALT S  &hml LCTRL D  &hmi_l LEFT_SHIFT F  &hmi_l LG(LEFT_ALT) G                                                    &hmi_r RG(RIGHT_ALT) H  &hmi_r RSHFT J   &hml RCTRL K  &hmr RIGHT_ALT L  &hmp_r RMETA SEMI  &kp APOS
+&trans  &kp Z              &kp X            &kp C         &lt_repeat 11 V      &kp B                  &trans  &trans  &trans    &trans  &trans  &trans  &kp N                   &lt_repeat 11 M  &kp APOS      &kp SLASH         &q_qmark           &trans
+&trans  &trans             &trans           &trans        &trans                                      &trans  &trans  &trans    &trans  &trans  &trans                          &trans           &trans        &trans            &trans             &trans
             >;
         };
 
