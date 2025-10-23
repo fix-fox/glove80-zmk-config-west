@@ -483,6 +483,11 @@
             bindings = <&tog 4>;
             key-positions = <52 69>;
         };
+
+        enter {
+            bindings = <&kp ENTER>;
+            key-positions = <57 74>;
+        };
     };
 
     keymap {
