@@ -478,6 +478,11 @@
         //     bindings = <&mo MACROS_LAYER>;
         //     layers = <0>;
         // };
+
+        toggle_left_hand {
+            bindings = <&tog 4>;
+            key-positions = <52 69>;
+        };
     };
 
     keymap {
