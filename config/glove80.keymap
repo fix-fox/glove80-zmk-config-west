@@ -546,7 +546,7 @@
 &trans     &kp LA(F4)  &kp LC(W)       &kp LC(F)        &trans                &trans                                                           &trans  &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
 &trans     &trans      &mt LALT LC(R)  &mt LCTRL LC(S)  &mt LEFT_SHIFT LC(T)  &trans                                                           &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
 &kp LC(Y)  &kp LC(Z)   &kp LC(X)       &kp LC(C)        &kp ENTER             &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &kp ENTER   &trans  &kp HOME   &trans    &kp END    &trans  &trans
-&trans     &kp LEFT    &kp DOWN        &kp UP_ARROW     &kp RIGHT                        &trans  &trans  &trans    &trans  &trans  &kp ESCAPE          &trans     &trans    &trans     &trans  &trans
+&trans     &kp LEFT    &kp DOWN        &kp UP_ARROW     &kp DEL                          &trans  &trans  &trans    &trans  &trans  &kp ESCAPE          &trans     &trans    &trans     &trans  &trans
             >;
         };
 
