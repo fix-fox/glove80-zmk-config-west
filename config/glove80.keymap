@@ -488,16 +488,6 @@
             bindings = <&kp ENTER>;
             key-positions = <57 74>;
         };
-
-        shift_bksp_to_del {
-            bindings = <&kp DELETE>;
-            key-positions = <41 69>;
-        };
-
-        lshift_bksp_to_del {
-            bindings = <&kp DELETE>;
-            key-positions = <69 38>;
-        };
     };
 
     keymap {
@@ -553,9 +543,9 @@
             bindings = <
 &trans     &trans      &trans          &trans           &trans                                                                                         &trans     &trans    &trans     &trans  &trans
 &trans     &trans      &trans          &trans           &trans                &trans                                                           &trans  &trans     &trans    &trans     &trans  &trans
-&trans     &kp LA(F4)  &kp LC(W)       &kp LC(F)        &trans                &trans                                                           &trans  &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
-&trans     &trans      &mt LALT LC(R)  &mt LCTRL LC(S)  &mt LEFT_SHIFT LC(T)  &trans                                                           &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
-&kp LC(Y)  &kp LC(Z)   &kp LC(X)       &kp LC(C)        &kp ENTER             &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &kp ESCAPE  &trans  &kp HOME   &trans    &kp END    &trans  &trans
+&trans     &kp LA(F4)  &kp LC(W)       &kp LC(F)        &kp LC(P)             &kp LC(B)                                                        &trans  &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
+&trans     &kp LC(A)   &mt LALT LC(R)  &mt LCTRL LC(S)  &mt LEFT_SHIFT LC(T)  &kp LC(G)                                                        &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
+&kp LC(Y)  &kp LC(Z)   &kp LC(X)       &kp LC(C)        &kp LC(D)             &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &kp ESCAPE  &trans  &kp HOME   &trans    &kp END    &trans  &trans
 &trans     &kp LEFT    &kp DOWN        &kp UP_ARROW     &kp DEL                          &trans  &trans  &trans    &trans  &trans  &kp ENTER           &trans     &trans    &trans     &trans  &trans
             >;
         };
