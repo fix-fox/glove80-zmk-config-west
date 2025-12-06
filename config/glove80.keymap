@@ -488,6 +488,16 @@
             bindings = <&kp ENTER>;
             key-positions = <57 74>;
         };
+
+        shift_bksp_to_del {
+            bindings = <&kp DELETE>;
+            key-positions = <41 69>;
+        };
+
+        lshift_bksp_to_del {
+            bindings = <&kp DELETE>;
+            key-positions = <69 38>;
+        };
     };
 
     keymap {
