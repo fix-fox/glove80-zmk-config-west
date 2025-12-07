@@ -488,6 +488,11 @@
             bindings = <&kp ENTER>;
             key-positions = <57 74>;
         };
+
+        mouse_toggle {
+            bindings = <&tog 9>;
+            key-positions = <37 42>;
+        };
     };
 
     keymap {
