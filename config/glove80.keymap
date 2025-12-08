@@ -254,6 +254,7 @@
 
         // CLEAN SLATE: Bilateral Home Mods (bhm)
         // Strictly enforced bilateral trigger with balanced flavor + hold-trigger-on-release
+
         bhm_l: bilateral_home_mod_left {
             compatible = "zmk,behavior-hold-tap";
             label = "BHM_L";
@@ -522,12 +523,12 @@
 
         default_layer {
             bindings = <
-&to 0                                 &to 10             &none            &none         &none                                                                                                                                                                                &none            &none         &none             &none           &kp LG(L)
-&none                                 &kp N1             &kp N2           &kp N3        &kp N4               &kp N5                                                                                                                                  &kp N6                  &kp N7           &kp N8        &kp N9            &kp N0          &none
-&none                                 &kp Q              &kp W            &kp F         &kp P                &kp B                                                                                                                                   &kp J                   &kp L            &kp U         &kp Y             &kp SEMI        &none
+&to 0                                 &to 10             &none              &none           &none                                                                                                                                                                                &none            &none           &none               &none           &kp LG(L)
+&none                                 &kp N1             &kp N2             &kp N3          &kp N4               &kp N5                                                                                                                                  &kp N6                  &kp N7           &kp N8          &kp N9              &kp N0          &none
+&none                                 &kp Q              &kp W              &kp F           &kp P                &kp B                                                                                                                                   &kp J                   &kp L            &kp U           &kp Y               &kp SEMI        &none
 &kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &bhm_l LEFT_GUI A  &bhm_l LEFT_ALT R  &bhm_l LCTRL S  &bhm_l LEFT_SHIFT T  &bhm_l LG(LEFT_ALT) G                                                                                                                   &bhm_r RG(RIGHT_ALT) M  &bhm_r RSHFT N   &bhm_r RCTRL E  &bhm_r RIGHT_ALT I  &bhm_r RMETA O  &kp APOS
-&none                                 &kp Z              &kp X            &kp C         &lt_repeat 11 D      &kp V                  &lt_repeat 5 TAB        &lt_repeat 9 ESCAPE  &lang_toggle    &none     &hml RC(SPACE) ENTER  &kp TAB             &kp K                   &lt_repeat 11 H  &kp COMMA     &kp DOT           &kp FSLH        &none
-&magic 1 DEFAULT_LAYER                &kp GRAVE          &none            &kp SPACE     &kp ENTER                                   &lt_repeat 4 BACKSPACE  &lt_repeat 8 DEL     &kp LG(H)       &td_caps  &kp ENTER             &lt_repeat 6 SPACE                          &kp ENTER        &none         &none             &kp TILDE       &magic 1 DEFAULT_LAYER
+&none                                 &kp Z              &kp X              &kp C           &lt_repeat 11 D      &kp V                  &lt_repeat 5 TAB        &lt_repeat 9 ESCAPE  &lang_toggle    &none     &hml RC(SPACE) ENTER  &kp TAB             &kp K                   &lt_repeat 11 H  &kp COMMA       &kp DOT             &kp FSLH        &none
+&magic 1 DEFAULT_LAYER                &kp GRAVE          &none              &kp SPACE       &kp ENTER                                   &lt_repeat 4 BACKSPACE  &lt_repeat 8 DEL     &kp LG(H)       &td_caps  &kp ENTER             &lt_repeat 6 SPACE                          &kp ENTER        &none           &none               &kp TILDE       &magic 1 DEFAULT_LAYER
             >;
         };
 
@@ -568,12 +569,12 @@
 
         cursor_layer {
             bindings = <
-&trans     &trans      &trans          &trans           &trans                                                                                         &trans     &trans    &trans     &trans  &trans
-&trans     &trans      &trans          &trans           &trans                &trans                                                           &trans  &trans     &trans    &trans     &trans  &trans
-&trans     &kp LA(F4)  &kp LC(W)       &kp LC(F)        &kp LC(P)             &kp LC(B)                                                        &trans  &kp PG_UP  &kp UP    &kp PG_DN  &trans  &trans
-&trans     &kp LC(A)   &mt LALT LC(R)  &mt LCTRL LC(S)  &mt LEFT_SHIFT LC(T)  &kp LC(G)                                                        &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &trans  &trans
-&kp LC(Y)  &kp LC(Z)   &kp LC(X)       &kp LC(C)        &kp LC(D)             &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &kp ESCAPE  &trans  &kp HOME   &trans    &kp END    &trans  &trans
-&trans     &trans      &trans          &trans           &kp DEL                          &trans  &trans  &trans    &trans  &trans  &kp ENTER           &trans     &trans    &trans     &trans  &trans
+&trans     &trans      &trans          &trans           &trans                                                                                         &trans         &trans    &trans     &trans  &trans
+&trans     &trans      &trans          &trans           &trans                &trans                                                           &trans  &trans         &trans    &trans     &trans  &trans
+&trans     &kp LA(F4)  &kp LC(W)       &kp LC(F)        &kp LC(P)             &kp LC(B)                                                        &trans  &kp PG_UP      &kp UP    &kp PG_DN  &trans  &trans
+&trans     &kp LC(A)   &mt LALT LC(R)  &mt LCTRL LC(S)  &mt LEFT_SHIFT LC(T)  &kp LC(G)                                                        &trans  &kp LEFT       &kp DOWN  &kp RIGHT  &trans  &trans
+&kp LC(Y)  &kp LC(Z)   &kp LC(X)       &kp LC(C)        &kp LC(D)             &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &kp ESCAPE  &trans  &kp HOME       &trans    &kp END    &trans  &trans
+&trans     &trans      &trans          &trans           &kp DEL                          &trans  &trans  &trans    &trans  &trans  &kp ENTER           &kp LA(LC(V))  &trans    &trans     &trans  &trans
             >;
         };
 
