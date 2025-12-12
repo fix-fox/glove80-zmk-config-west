@@ -4,15 +4,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/rgb.h>
-
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/rgb.h>
 
 #define HYPER LC(LS(LG(LALT)))
 
@@ -517,14 +517,9 @@
             key-positions = <52 69>;
         };
 
-        enter {
-            bindings = <&kp ENTER>;
-            key-positions = <57 74>;
-        };
-
         mouse_toggle {
             bindings = <&tog 9>;
-            key-positions = <37 42>;
+            key-positions = <74 57>;
         };
 
         caps_lock {
@@ -535,6 +530,11 @@
         caps_word {
             bindings = <&caps_word>;
             key-positions = <38 41>;
+        };
+
+        mouse_toggle_2 {
+            bindings = <&tog 9>;
+            key-positions = <42 37>;
         };
     };
 
