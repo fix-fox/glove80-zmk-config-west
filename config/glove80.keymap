@@ -270,7 +270,7 @@
             label = "BHM_L";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <2000>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <130>;
             hold-trigger-on-release; // Wait for release to decide
@@ -283,7 +283,7 @@
             label = "BHM_R";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <2000>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <130>;
             hold-trigger-on-release; // Wait for release to decide
