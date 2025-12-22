@@ -74,24 +74,30 @@
             flavor = "balanced";  // default "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
-
+            quick-tap-ms = <175>;
             display-name = "Layer-Tap";
         };
 
-        // lt_repeat: layer_tap_repeat {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     label = "LAYER_TAP_REPEAT";
-        //     #binding-cells = <2>;
-        //     flavor =
-        //     HT_FLAVOR;
-        //     tapping-term-ms = <HT_THUMB_MS>;
-        //     quick-tap-ms = <HT_QUICK_TAP_MS>;
-        //     require-prior-idle-ms = <HT_PRIOR_IDLE_MS>;
-        //     hold-trigger-on-release;
-        //     bindings = <&mo>, <&kp>;
-        // };
-        // momentary layer on hold, toggle layer on tap. usage example: &mo_tog MACROS_LAYER CURSOR_LAYER 
+        // sends backspace when tapped, delete when held with shift
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 
+        lt_bspc: layer_tap_backspace_delete {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+
+            display-name = "Layer-Tap-Bspc-Del";
+            bindings = <&mo>, <&bspc_del>;
+        };
+
+        // momentary layer on hold, toggle layer on tap. usage example: &mo_tog MACROS_LAYER CURSOR_LAYER 
         mo_tog: behavior_mo_tog {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -517,7 +523,7 @@
 &none                                 &kp Q            &kp W            &kp F         &kp P              &kp B                                                                                                               &kp J                 &kp L         &kp U         &kp Y             &kp SEMI      &none
 &kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &hml LG(LEFT_ALT) G                                                                                                 &hmr RG(RIGHT_ALT) M  &hmr RSHFT N  &hmr RCTRL E  &hmr RIGHT_ALT I  &hmr RMETA O  &kp APOS
 &none                                 &kp Z            &kp X            &kp C         &lt 11 D           &mt LC(LA(V)) V      &lt 5 TAB        &lt 9 ESCAPE  &lang_toggle    &none  &none                       &kp TAB      &kp K                 &lt 11 H      &kp COMMA     &kp DOT           &kp FSLH      &none
-&magic 1 DEFAULT_LAYER                &kp GRAVE        &none            &kp SPACE     &kp ENTER                               &lt 4 BACKSPACE  &lt 8 DEL     &kp LG(H)       &none  &mt LA(LEFT_GUI) LC(SPACE)  &lt 6 SPACE                        &kp ENTER     &none         &none             &kp TILDE     &magic 1 DEFAULT_LAYER
+&magic 1 DEFAULT_LAYER                &kp GRAVE        &none            &kp SPACE     &kp ENTER                               &lt_bspc 4 0  &lt 8 DEL     &kp LG(H)       &none  &mt LA(LEFT_GUI) LC(SPACE)  &lt 6 SPACE                        &kp ENTER     &none         &none             &kp TILDE     &magic 1 DEFAULT_LAYER
             >;
         };
 
