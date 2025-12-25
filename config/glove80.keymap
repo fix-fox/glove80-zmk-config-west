@@ -33,16 +33,7 @@
 
 // Define common hold-tap timing configuration to keep it DRY
 
-#define HT_QUICK_TAP_MS 175
-#define HT_PRIOR_IDLE_MS 130
-#define HT_FLAVOR "balanced"
 #define HT_TAPPING_TERM_MS 200
-#define HT_THUMB_MS 150  // Strongest fingers
-#define HT_INDEX_MS 180
-#define HT_MIDDLE_MS 190
-#define HT_RING_MS 220
-#define HT_PINKY_MS 280
-#define HT_PINKY_IDLE_MS 160  // Extra safety for pinkies
 
 // Common trigger positions
 
