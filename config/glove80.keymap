@@ -492,11 +492,15 @@
         caps_lock {
             bindings = <&kp CAPS>;
             key-positions = <39 40>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <300>;
         };
 
         caps_word {
             bindings = <&caps_word>;
             key-positions = <38 41>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <300>;
         };
 
         mouse_toggle_2 {
