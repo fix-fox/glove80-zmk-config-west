@@ -4,7 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 500  // default: 600
+#define U_MOUSE_TURBO_MOVE_VAL 1500
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
 #include <behaviors.dtsi>
@@ -30,13 +31,11 @@
 #define MOUSE_LAYER 9
 #define ORIGINAL_DEFAULT_LAYER 10
 #define MACROS_LAYER 11
-
-// Define common hold-tap timing configuration to keep it DRY
+#define MOUSE_TURBO_LAYER 12
 
 #define HT_TAPPING_TERM_MS 200
 
 // Common trigger positions
-
 #define LEFT_HAND_KEYS 0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71
 #define RIGHT_HAND_KEYS 5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 55 56 57 58 59 60 61 62 63 72 73 74 75 76 77 78 79
 
@@ -626,7 +625,7 @@
 &trans  &trans  &trans          &msc SCRL_UP    &trans           &trans                                                             &trans  &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &trans  &trans
 &trans  &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans                                                             &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
 &trans  &trans  &kp LC(X)       &kp LC(C)       &trans           &kp LC(V)  &trans     &trans  &trans    &trans  &trans  &trans     &trans  &mkp LCLK       &mkp MB3        &mkp RCLK        &trans  &trans
-&trans  &trans  &trans          &trans          &trans                      &mkp LCLK  &trans  &trans    &trans  &trans  &mkp LCLK          &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans          &trans          &trans                      &mkp LCLK  &trans  &trans    &trans  &trans  &mo MOUSE_TURBO_LAYER          &trans          &trans          &trans           &trans  &trans
             >;
         };
 
@@ -660,5 +659,17 @@
 &trans  &trans  &trans  &trans  &trans                        &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans                  &trans        &trans          &trans  &trans  &trans
             >;
         };
+
+        mouse_turbo_layer {
+            bindings = <
+&trans  &trans  &trans          &trans          &trans                                                                                      &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans                                                             &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans                                                             &trans  &trans          &mmv MOVE_Y(-U_MOUSE_TURBO_MOVE_VAL)    &trans  &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans                                                             &trans  &mmv MOVE_X(-U_MOUSE_TURBO_MOVE_VAL)  &mmv MOVE_Y(U_MOUSE_TURBO_MOVE_VAL)  &mmv MOVE_X(U_MOUSE_TURBO_MOVE_VAL)  &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans     &trans  &trans  &trans    &trans  &trans  &trans        &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans          &trans          &trans                      &trans  &trans  &trans    &trans  &trans  &trans                &trans          &trans          &trans           &trans  &trans
+            >;
+        };
+
     };
 };
