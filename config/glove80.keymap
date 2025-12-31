@@ -35,6 +35,8 @@
 
 #define HT_TAPPING_TERM_MS 200
 
+#define A_KEY A
+
 // Common trigger positions
 #define LEFT_HAND_KEYS 0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71
 #define RIGHT_HAND_KEYS 5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 55 56 57 58 59 60 61 62 63 72 73 74 75 76 77 78 79
@@ -518,7 +520,7 @@
 &to 0                                 &to 10           &none            &none         &none                                                                                                                                                     &none         &none         &none             &none         &kp LG(L)
 &none                                 &kp N1           &kp N2           &kp N3        &kp N4             &kp N5                                                                                                           &kp N6                &kp N7        &kp N8        &kp N9            &kp N0        &none
 &none                                 &kp Q            &kp W            &kp F         &kp P              &kp B                                                                                                            &kp J                 &kp L         &kp U         &kp Y             &kp SEMI      &none
-&kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &hml LG(LEFT_ALT) G                                                                                              &hmr RG(RIGHT_ALT) M  &hmr RSHFT N  &hmr RCTRL E  &hmr RIGHT_ALT I  &hmr RMETA O  &none
+&kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &hml LEFT_GUI A_KEY  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &hml LG(LEFT_ALT) G                                                                                              &hmr RG(RIGHT_ALT) M  &hmr RSHFT N  &hmr RCTRL E  &hmr RIGHT_ALT I  &hmr RMETA O  &none
 &none                                 &kp Z            &kp X            &kp C         &lt 11 D           &kp V                &lt 5 TAB     &lt 9 ESCAPE  &lang_toggle    &none  &none                       &kp TAB      &kp K                 &lt 11 H      &kp COMMA     &kp DOT           &kp FSLH      &none
 &magic 1 DEFAULT_LAYER                &kp GRAVE        &none            &kp SPACE     &kp ENTER                               &lt_bspc 4 0  &lt 8 DEL     &kp LG(H)       &none  &mt LA(LEFT_GUI) LC(SPACE)  &lt 6 SPACE                        &kp ENTER     &none         &none             &kp TILDE     &magic 1 DEFAULT_LAYER
             >;
