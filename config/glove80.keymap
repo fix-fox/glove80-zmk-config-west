@@ -52,9 +52,15 @@
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
             bindings = <&kp>, <&kp>;
+            
+            // flavor = "hold-preferred";
+            // tapping-term-ms = <200>;
+            
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
 
             display-name = "Mod-Tap";
         };
@@ -65,7 +71,6 @@
             flavor = "balanced";  // default "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
-
             quick-tap-ms = <175>;
             display-name = "Layer-Tap";
         };
@@ -85,19 +90,9 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
+            bindings = <&mo>, <&bspc_del>;
             quick-tap-ms = <175>;
             display-name = "Layer-Tap-Bspc-Del";
-            bindings = <&mo>, <&bspc_del>;
-        };
-
-        // momentary layer on hold, toggle layer on tap. usage example: &mo_tog MACROS_LAYER CURSOR_LAYER 
-
-        mo_tog: behavior_mo_tog {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
         };
 
         magic: magic_hold_tap {
@@ -158,14 +153,6 @@
             hold-trigger-on-release;
         };
 
-        td_caps: td_caps {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_CAPS";
-            #binding-cells = <0>;
-            tapping-term-ms = <HT_TAPPING_TERM_MS>;
-            bindings = <&caps_word>, <&kp CLCK>;
-        };
-
         // Custom mod-morph for Q key: q normally, ? with shift
 
         q_qmark: q_question_mark {
@@ -173,87 +160,6 @@
             label = "Q_QMARK";
             #binding-cells = <0>;
             bindings = <&kp Q>, <&kp LS(FSLH)>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n1_f1: n1_f1 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N1_F1";
-            #binding-cells = <0>;
-            bindings = <&kp N1>, <&kp F1>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n2_f2: n2_f2 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N2_F2";
-            #binding-cells = <0>;
-            bindings = <&kp N2>, <&kp F2>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n3_f3: n3_f3 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N3_F3";
-            #binding-cells = <0>;
-            bindings = <&kp N3>, <&kp F3>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n4_f4: n4_f4 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N4_F4";
-            #binding-cells = <0>;
-            bindings = <&kp N4>, <&kp F4>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n5_f5: n5_f5 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N5_F5";
-            #binding-cells = <0>;
-            bindings = <&kp N5>, <&kp F5>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n6_f6: n6_f6 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N6_F6";
-            #binding-cells = <0>;
-            bindings = <&kp N6>, <&kp F6>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n7_f7: n7_f7 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N7_F7";
-            #binding-cells = <0>;
-            bindings = <&kp N7>, <&kp F7>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n8_f8: n8_f8 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N8_F8";
-            #binding-cells = <0>;
-            bindings = <&kp N8>, <&kp F8>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n9_f9: n9_f9 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "N9_F9";
-            #binding-cells = <0>;
-            bindings = <&kp N9>, <&kp F9>;
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -342,54 +248,6 @@
                 <&kp BSPC>;
         };
 
-        // Delete entire line
-
-        delete_line: delete_line {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp HOME>,
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp END>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp BSPC &kp DEL>;
-        };
-
-        // Delete word forward (Ctrl+D or Alt+D)
-
-        delete_word_forward: delete_word_forward {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>,
-                <&kp RIGHT>,
-                <&macro_release>,
-                <&kp LCTRL &kp LSHFT>,
-                <&macro_tap>,
-                <&kp BSPC>;
-        };
-
-        // Delete word backward (Ctrl+W or Ctrl+Backspace)
-
-        delete_word_backward: delete_word_backward {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp BSPC>,
-                <&macro_release>,
-                <&kp LCTRL>;
-        };
-
         // Select current line
 
         select_line: select_line {
@@ -464,20 +322,6 @@
 
     combos {
         compatible = "zmk,combos";
-
-        // These are not great because they interfere with ctrl and shift usage.
-        // combo_macros_right {
-        //     timeout-ms = <50>;
-        //     key-positions = <42 41>;  // N (RSHFT), E (RCTRL)
-        //     bindings = <&mo MACROS_LAYER>;
-        //     layers = <0>;
-        // };
-        // combo_macros_left {
-        //     timeout-ms = <50>;
-        //     key-positions = <38 37>;  // S (LCTRL), T (LSHFT)
-        //     bindings = <&mo MACROS_LAYER>;
-        //     layers = <0>;
-        // };
 
         toggle_left_hand {
             bindings = <&tog 4>;
@@ -575,9 +419,9 @@
             bindings = <
 &trans  &trans  &trans        &trans     &trans                                                                            &trans  &trans  &trans  &trans   &trans
 &trans  &trans  &trans        &trans     &trans          &trans                                                    &trans  &trans  &trans  &trans  &trans   &trans
-&trans  &trans  &trans        &trans     &trans          &trans                                                    &trans  &n7_f7  &n8_f8  &n9_f9  &kp F10  &trans
-&trans  &trans  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &trans                                                    &trans  &n4_f4  &n5_f5  &n6_f6  &kp F11  &trans
-&trans  &trans  &trans        &trans     &trans          &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &n1_f1  &n2_f2  &n3_f3  &kp F12  &trans
+&trans  &trans  &trans        &trans     &trans          &trans                                                    &trans  &kp N7  &kp N8  &kp N9  &kp F10  &trans
+&trans  &trans  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &trans                                                    &trans  &kp N4  &kp N5  &kp N6  &kp F11  &trans
+&trans  &trans  &trans        &trans     &trans          &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp N1  &kp N2  &kp N3  &kp F12  &trans
 &trans  &trans  &trans        &trans     &trans                  &trans  &trans  &trans    &trans  &trans  &kp N0          &trans  &trans  &trans  &trans   &trans
             >;
         };
