@@ -347,13 +347,6 @@
             timeout-ms = <30>;
             require-prior-idle-ms = <300>;
         };
-
-        mouse_toggle_2 {
-            bindings = <&tog 9>;
-            key-positions = <42 37>;
-            require-prior-idle-ms = <300>;
-            timeout-ms = <30>;
-        };
     };
 
     keymap {
