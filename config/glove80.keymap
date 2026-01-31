@@ -359,7 +359,7 @@
 &none                                 &kp Q                &kp W            &kp F         &kp P              &kp B                                                                                                                &kp J                 &kp L         &kp U         &kp Y             &kp SEMI      &none
 &kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &hml LEFT_GUI A_KEY  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &hml LG(LEFT_ALT) G                                                                                                  &hmr RG(RIGHT_ALT) M  &hmr RSHFT N  &hmr RCTRL E  &hmr RIGHT_ALT I  &hmr RMETA O  &none
 &none                                 &kp Z                &kp X            &kp C         &lt 11 D           &kp V                &lt 5 TAB     &lt 9 ESCAPE  &lang_toggle    &none      &none                       &kp TAB      &kp K                 &lt 11 H      &kp COMMA     &kp DOT           &kp FSLH      &none
-&magic 1 DEFAULT_LAYER                &kp GRAVE            &none            &kp SPACE     &kp ENTER                               &lt_bspc 4 0  &lt 8 DEL     &kp LG(H)       &kp PSCRN  &mt LA(LEFT_GUI) LC(SPACE)  &lt 6 SPACE                        &kp ENTER     &none         &none             &kp TILDE     &magic 1 DEFAULT_LAYER
+&magic 1 DEFAULT_LAYER                &kp GRAVE            &none            &kp SPACE     &kp ENTER                               &lt_bspc 4 0  &lt 8 DEL     &kp LG(H)       &kp PSCRN  &mt LA(LEFT_GUI) LC(SPACE)  &lt 6 SPACE                        &kp ENTER     &tog 9        &none             &kp TILDE     &magic 1 DEFAULT_LAYER
             >;
         };
 
@@ -464,7 +464,7 @@
 &trans  &trans  &trans          &msc SCRL_UP    &trans           &trans                                                                         &trans  &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &trans  &trans
 &trans  &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans                                                                         &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
 &trans  &trans  &kp LC(X)       &kp LC(C)       &trans           &kp LC(V)  &trans     &trans  &trans    &trans  &trans  &trans                 &trans  &mkp LCLK       &mkp MB3        &mkp RCLK        &trans  &trans
-&trans  &trans  &trans          &trans          &trans                      &mkp LCLK  &trans  &trans    &trans  &trans  &mo MOUSE_TURBO_LAYER          &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans          &kp LCTRL       &kp LEFT_SHIFT              &mkp LCLK  &trans  &trans    &trans  &trans  &mo MOUSE_TURBO_LAYER          &trans          &tog 9          &trans           &trans  &trans
             >;
         };
 
