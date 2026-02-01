@@ -6,7 +6,7 @@
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 900  // default: 600
 #define U_MOUSE_TURBO_MOVE_VAL 1200
-#define U_MOUSE_SLOW_MOVE_VAL 600
+#define U_MOUSE_SLOW_MOVE_VAL 300
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
 #include <behaviors.dtsi>
