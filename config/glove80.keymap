@@ -359,8 +359,8 @@
 &tog 3                                &kp N1               &kp N2           &kp N3        &kp N4             &kp N5                                                                                                               &kp N6                &kp N7        &kp N8        &kp N9            &kp N0        &none
 &none                                 &kp Q                &kp W            &kp F         &kp P              &kp B                                                                                                                &kp J                 &kp L         &kp U         &kp Y             &kp SEMI      &none
 &kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &hml LEFT_GUI A_KEY  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &hml LG(LEFT_ALT) G                                                                                                  &hmr RG(RIGHT_ALT) M  &hmr RSHFT N  &hmr RCTRL E  &hmr RIGHT_ALT I  &hmr RMETA O  &none
-&none                                 &kp Z                &kp X            &kp C         &lt 11 D           &kp V                &lt 5 TAB     &lt 9 ESCAPE  &lang_toggle    &none      &none                       &kp TAB      &kp K                 &lt 11 H      &kp COMMA     &kp DOT           &kp FSLH      &none
-&magic 1 DEFAULT_LAYER                &kp GRAVE            &none            &kp SPACE     &kp ENTER                               &lt_bspc 4 0  &lt 8 DEL     &kp LG(H)       &kp PSCRN  &mt LA(LEFT_GUI) LC(SPACE)  &lt 6 SPACE                        &kp ENTER     &tog 9        &none             &kp TILDE     &magic 1 DEFAULT_LAYER
+&none                                 &kp Z                &kp X            &kp C         &lt 11 D           &kp V                &lt 5 TAB     &lt 8 ESCAPE  &lang_toggle    &none      &none                       &lt 9 TAB    &kp K                 &lt 11 H      &kp COMMA     &kp DOT           &kp FSLH      &none
+&magic 1 DEFAULT_LAYER                &kp GRAVE            &none            &kp SPACE     &kp ENTER                               &lt_bspc 4 0  &lt 9 DEL     &kp LG(H)       &kp PSCRN  &mt LA(LEFT_GUI) LC(SPACE)  &lt 6 SPACE                        &kp ENTER     &tog 9        &none             &kp TILDE     &magic 1 DEFAULT_LAYER
             >;
         };
 
@@ -502,12 +502,12 @@
 
         mouse_turbo_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                                                    &trans                                &trans                                &trans                               &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans                                &trans                                &trans                               &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans                                &mmv MOVE_Y(-U_MOUSE_SLOW_MOVE_VAL)  &trans                               &trans  &trans
+&trans  &trans  &trans  &trans  &trans                                                                    &trans                               &trans                               &trans                              &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans                               &trans                               &trans                              &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans                               &mmv MOVE_Y(-U_MOUSE_SLOW_MOVE_VAL)  &trans                              &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &mmv MOVE_X(-U_MOUSE_SLOW_MOVE_VAL)  &mmv MOVE_Y(U_MOUSE_SLOW_MOVE_VAL)   &mmv MOVE_X(U_MOUSE_SLOW_MOVE_VAL)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans                                &trans                                &trans                               &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans                                &trans                                &trans                               &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans                               &trans                               &trans                              &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans                               &trans                               &trans                              &trans  &trans
             >;
         };
     };
