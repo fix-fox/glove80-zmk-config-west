@@ -4,8 +4,9 @@
  * SPDX-License-Identifier: MIT
  */
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 900  // default: 600
 #define U_MOUSE_TURBO_MOVE_VAL 1200
+#define U_MOUSE_SLOW_MOVE_VAL 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
 #include <behaviors.dtsi>
@@ -503,8 +504,8 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans                                                                    &trans                                &trans                                &trans                               &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans                                &trans                                &trans                               &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans                                &mmv MOVE_Y(-U_MOUSE_TURBO_MOVE_VAL)  &trans                               &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &mmv MOVE_X(-U_MOUSE_TURBO_MOVE_VAL)  &mmv MOVE_Y(U_MOUSE_TURBO_MOVE_VAL)   &mmv MOVE_X(U_MOUSE_TURBO_MOVE_VAL)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans                                &mmv MOVE_Y(-U_MOUSE_SLOW_MOVE_VAL)  &trans                               &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &mmv MOVE_X(-U_MOUSE_SLOW_MOVE_VAL)  &mmv MOVE_Y(U_MOUSE_SLOW_MOVE_VAL)   &mmv MOVE_X(U_MOUSE_SLOW_MOVE_VAL)  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans                                &trans                                &trans                               &trans  &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans                                &trans                                &trans                               &trans  &trans
             >;
