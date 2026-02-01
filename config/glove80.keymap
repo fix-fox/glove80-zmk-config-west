@@ -33,6 +33,8 @@
 #define ORIGINAL_DEFAULT_LAYER 10
 #define MACROS_LAYER 11
 #define MOUSE_TURBO_LAYER 12
+#define MOD_ACTIVE_LAYER 13
+#define ENGLISH_ALPHA_LAYER 14
 #define HT_TAPPING_TERM_MS 200
 #define A_KEY A
 
@@ -152,6 +154,127 @@
             // List of keys on the left side of the keyboard
 
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71 57 74>; // Left Hand Keys
+            hold-trigger-on-release;
+        };
+
+        // Home row mods with signal layer for consistent shortcuts across language layers
+        hml_lgui: hml_lgui {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_lgui>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 55 56 57 58 59 60 61 62 63 72 73 74 75 76 77 78 79 52 69>;
+            hold-trigger-on-release;
+        };
+
+        hml_lalt: hml_lalt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_lalt>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 55 56 57 58 59 60 61 62 63 72 73 74 75 76 77 78 79 52 69>;
+            hold-trigger-on-release;
+        };
+
+        hml_lctrl: hml_lctrl {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_lctrl>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 55 56 57 58 59 60 61 62 63 72 73 74 75 76 77 78 79 52 69>;
+            hold-trigger-on-release;
+        };
+
+        hml_lshift: hml_lshift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_lshift>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 55 56 57 58 59 60 61 62 63 72 73 74 75 76 77 78 79 52 69>;
+            hold-trigger-on-release;
+        };
+
+        hml_lgui_lalt: hml_lgui_lalt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_lgui_lalt>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 55 56 57 58 59 60 61 62 63 72 73 74 75 76 77 78 79 52 69>;
+            hold-trigger-on-release;
+        };
+
+        hmr_rgui: hmr_rgui {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_rgui>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71 57 74>;
+            hold-trigger-on-release;
+        };
+
+        hmr_ralt: hmr_ralt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_ralt>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71 57 74>;
+            hold-trigger-on-release;
+        };
+
+        hmr_rctrl: hmr_rctrl {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_rctrl>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71 57 74>;
+            hold-trigger-on-release;
+        };
+
+        hmr_rshift: hmr_rshift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_rshift>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71 57 74>;
+            hold-trigger-on-release;
+        };
+
+        hmr_rgui_ralt: hmr_rgui_ralt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mod_rgui_ralt>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 52 53 54 64 65 66 67 68 69 70 71 57 74>;
             hold-trigger-on-release;
         };
 
@@ -311,14 +434,171 @@
 
             label = "FLOW_BOOKMARK";
         };
+
+        // Modifier macros that also activate signal layer for consistent shortcuts
+        mod_lgui: mod_lgui {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LGUI>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LGUI>;
+        };
+
+        mod_lalt: mod_lalt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LALT>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LALT>;
+        };
+
+        mod_lctrl: mod_lctrl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LCTRL>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LCTRL>;
+        };
+
+        mod_lshift: mod_lshift {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LSHIFT>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LSHIFT>;
+        };
+
+        mod_lgui_lalt: mod_lgui_lalt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LG(LALT)>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp LG(LALT)>;
+        };
+
+        mod_rgui: mod_rgui {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RGUI>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RGUI>;
+        };
+
+        mod_ralt: mod_ralt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RALT>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RALT>;
+        };
+
+        mod_rctrl: mod_rctrl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RCTRL>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RCTRL>;
+        };
+
+        mod_rshift: mod_rshift {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RSHIFT>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RSHIFT>;
+        };
+
+        mod_rgui_ralt: mod_rgui_ralt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RG(RALT)>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo MOD_ACTIVE_LAYER>,
+                <&kp RG(RALT)>;
+        };
     };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
         hebrew_symbols {
-            if-layers = <3 6>;
-            then-layer = <7>;
+            if-layers = <HEBREW_LAYER SYMBOLS_LAYER>;
+            then-layer = <HEBREW_SYMBOLS_LAYER>;
+        };
+
+        // When Hebrew + modifier signal active, use English alpha for consistent shortcuts
+        english_alpha_when_mod {
+            if-layers = <HEBREW_LAYER MOD_ACTIVE_LAYER>;
+            then-layer = <ENGLISH_ALPHA_LAYER>;
         };
     };
 
@@ -358,7 +638,7 @@
 &to 0                                 &to 10               &none            &none         &none                                                                                                                                                         &none         &none         &none             &none         &kp LG(L)
 &tog 3                                &kp N1               &kp N2           &kp N3        &kp N4             &kp N5                                                                                                               &kp N6                &kp N7        &kp N8        &kp N9            &kp N0        &none
 &none                                 &kp Q                &kp W            &kp F         &kp P              &kp B                                                                                                                &kp J                 &kp L         &kp U         &kp Y             &kp SEMI      &none
-&kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &hml LEFT_GUI A_KEY  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &hml LG(LEFT_ALT) G                                                                                                  &hmr RG(RIGHT_ALT) M  &hmr RSHFT N  &hmr RCTRL E  &hmr RIGHT_ALT I  &hmr RMETA O  &none
+&kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &hml_lgui A  &hml_lalt R  &hml_lctrl S  &hml_lshift T  &hml_lgui_lalt G                                                                                                  &hmr_rgui_ralt M  &hmr_rshift N  &hmr_rctrl E  &hmr_ralt I  &hmr_rgui O  &none
 &none                                 &kp Z                &kp X            &kp C         &lt 11 D           &kp V                &lt 5 TAB     &lt 8 ESCAPE  &lang_toggle    &none      &none                       &lt 9 TAB    &kp K                 &lt 11 H      &kp COMMA     &kp DOT           &kp FSLH      &none
 &magic 1 DEFAULT_LAYER                &kp GRAVE            &none            &kp SPACE     &kp ENTER                               &lt_bspc 4 0  &lt 9 DEL     &kp LG(H)       &kp PSCRN  &mt LA(LEFT_GUI) LC(SPACE)  &lt 6 SPACE                        &kp ENTER     &tog 9        &none             &kp TILDE     &magic 1 DEFAULT_LAYER
             >;
@@ -393,7 +673,7 @@
 &trans  &trans           &trans           &trans        &trans                                                                                                          &trans        &trans        &trans            &trans           &trans
 &trans  &trans           &trans           &trans        &trans             &trans                                                                 &trans                &trans        &trans        &trans            &trans           &trans
 &trans  &kp PERIOD       &kp COMMA        &kp E         &kp R              &kp T                                                                  &kp Y                 &kp U         &kp I         &kp O             &kp P            &trans
-&trans  &hml LEFT_GUI A  &hml LEFT_ALT S  &hml LCTRL D  &hml LEFT_SHIFT F  &hml LG(LEFT_ALT) G                                                    &hmr RG(RIGHT_ALT) H  &hmr RSHFT J  &hmr RCTRL K  &hmr RIGHT_ALT L  &hmr RMETA SEMI  &kp APOS
+&trans  &hml_lgui A  &hml_lalt S  &hml_lctrl D  &hml_lshift F  &hml_lgui_lalt G                                                    &hmr_rgui_ralt H  &hmr_rshift J  &hmr_rctrl K  &hmr_ralt L  &hmr_rgui SEMI  &kp APOS
 &trans  &kp Z            &kp X            &kp C         &lt 11 V           &kp B                &trans  &trans  &trans    &trans  &trans  &trans  &kp N                 &lt 11 M      &kp APOS      &kp SLASH         &q_qmark         &trans
 &trans  &trans           &trans           &trans        &trans                                  &trans  &trans  &trans    &mo 0   &trans  &trans                        &trans        &trans        &trans            &trans           &trans
             >;
@@ -508,6 +788,32 @@
 &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &mmv MOVE_X(-U_MOUSE_SLOW_MOVE_VAL)  &mmv MOVE_Y(U_MOUSE_SLOW_MOVE_VAL)   &mmv MOVE_X(U_MOUSE_SLOW_MOVE_VAL)  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans                               &trans                               &trans                              &trans  &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans                               &trans                               &trans                              &trans  &trans
+            >;
+        };
+
+        mod_active_layer {
+            // Signal layer activated by home row mod macros
+            // Used with conditional layer to enable English alpha when Hebrew + modifier
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                                                                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        english_alpha_layer {
+            // Colemak alpha keys for consistent shortcuts when Hebrew + modifier active
+            // Home row has mods to support multi-modifier combos (Ctrl+Shift+S, etc.)
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                                                                          &trans          &trans          &trans        &trans        &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans          &trans          &trans        &trans        &trans
+&trans  &kp Q   &kp W   &kp F   &kp P   &kp B                                                           &kp J   &kp L           &kp U           &kp Y         &trans        &trans
+&trans  &hml_lgui A  &hml_lalt R  &hml_lctrl S  &hml_lshift T  &hml_lgui_lalt G                            &hmr_rgui_ralt M  &hmr_rshift N  &hmr_rctrl E  &hmr_ralt I   &hmr_rgui O   &trans
+&trans  &kp Z   &kp X   &kp C   &kp D   &kp V   &trans  &trans  &trans    &trans  &trans  &trans        &kp K   &kp H           &trans          &trans        &trans        &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans                &trans          &trans          &trans        &trans        &trans
             >;
         };
     };
