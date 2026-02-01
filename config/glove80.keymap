@@ -494,7 +494,7 @@
 &trans  &trans  &trans  &trans  &trans        &trans                                                                            &trans          &trans        &trans          &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans        &flow_bookmark                                                                    &trans          &select_line  &delete_to_bol  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans        &gemini_tab                                                                       &trans          &trans        &trans          &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &lang_toggle  &trans          &trans          &trans          &trans    &trans  &trans  &trans  &delete_to_eol  &lang_toggle  &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &tog 9  &lang_toggle  &trans          &trans          &trans          &trans    &trans  &trans  &trans  &delete_to_eol  &lang_toggle  &tog 9          &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans                        &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans                  &trans        &trans          &trans  &trans  &trans
             >;
         };
