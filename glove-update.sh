@@ -5,7 +5,6 @@
 set -e
 
 REPO="fix-fox/glove80-zmk-config-west"
-MOUNT_POINT="/mnt/d"
 FIRMWARE_PATTERN="glove80_lh*.uf2"
 TEMP_DIR=$(mktemp -d)
 
@@ -75,19 +74,20 @@ echo ""
 echo "Put the LEFT hand in bootloader mode:"
 echo "  1. Hold the bottom-left key (magic key)"
 echo "  2. While holding, tap the top-left key"
-echo "  3. Release both - keyboard should mount as GLV80LHBOOT"
+echo "  3. Release both - keyboard should mount as GLV80LHBOOT (D:)"
 echo ""
-read -p "Press Enter when ready..." -r
+echo "Waiting for device at D:\\ ..."
 
-echo "Waiting for device at $MOUNT_POINT..."
 TIMEOUT=60
 ELAPSED=0
-while [ ! -d "$MOUNT_POINT" ] || [ -z "$(ls -A "$MOUNT_POINT" 2>/dev/null)" ]; do
+# Check if D: drive is accessible via cmd.exe
+while ! cmd.exe /c "if exist D:\\ (exit 0) else (exit 1)" 2>/dev/null; do
     sleep 1
     ELAPSED=$((ELAPSED + 1))
     if [ $ELAPSED -ge $TIMEOUT ]; then
-        echo "Error: Timeout waiting for device to mount at $MOUNT_POINT"
-        echo "Make sure the keyboard is in bootloader mode and the drive is accessible."
+        echo ""
+        echo "Error: Timeout waiting for device at D:\\"
+        echo "Make sure the keyboard is in bootloader mode."
         exit 1
     fi
     printf "\r  Waiting... %ds" $ELAPSED
@@ -95,7 +95,8 @@ done
 echo ""
 
 echo "Device detected! Copying firmware..."
-cp "$FIRMWARE_FILE" "$MOUNT_POINT/"
+FIRMWARE_WIN_PATH=$(wslpath -w "$FIRMWARE_FILE")
+cmd.exe /c copy "$FIRMWARE_WIN_PATH" "D:\\" > /dev/null
 
 echo ""
 echo "Firmware copied. The keyboard will reboot automatically."
