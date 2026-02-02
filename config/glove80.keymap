@@ -158,9 +158,10 @@
         };
 
         // Home row mods with signal layer for consistent shortcuts across language layers
+        // Note: #binding-cells must be 2 per ZMK schema; first param (0) is ignored by macro
         hml_lgui: hml_lgui {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -172,7 +173,7 @@
 
         hml_lalt: hml_lalt {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -184,7 +185,7 @@
 
         hml_lctrl: hml_lctrl {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -196,7 +197,7 @@
 
         hml_lshift: hml_lshift {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -208,7 +209,7 @@
 
         hml_lgui_lalt: hml_lgui_lalt {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -220,7 +221,7 @@
 
         hmr_rgui: hmr_rgui {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -232,7 +233,7 @@
 
         hmr_ralt: hmr_ralt {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -244,7 +245,7 @@
 
         hmr_rctrl: hmr_rctrl {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -256,7 +257,7 @@
 
         hmr_rshift: hmr_rshift {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -268,7 +269,7 @@
 
         hmr_rgui_ralt: hmr_rgui_ralt {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
@@ -638,7 +639,7 @@
 &to 0                                 &to 10               &none            &none         &none                                                                                                                                                         &none         &none         &none             &none         &kp LG(L)
 &tog 3                                &kp N1               &kp N2           &kp N3        &kp N4             &kp N5                                                                                                               &kp N6                &kp N7        &kp N8        &kp N9            &kp N0        &none
 &none                                 &kp Q                &kp W            &kp F         &kp P              &kp B                                                                                                                &kp J                 &kp L         &kp U         &kp Y             &kp SEMI      &none
-&kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &hml_lgui A  &hml_lalt R  &hml_lctrl S  &hml_lshift T  &hml_lgui_lalt G                                                                                                  &hmr_rgui_ralt M  &hmr_rshift N  &hmr_rctrl E  &hmr_ralt I  &hmr_rgui O  &none
+&kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT  &hml_lgui 0 A  &hml_lalt 0 R  &hml_lctrl 0 S  &hml_lshift 0 T  &hml_lgui_lalt 0 G                                                                                         &hmr_rgui_ralt 0 M  &hmr_rshift 0 N  &hmr_rctrl 0 E  &hmr_ralt 0 I  &hmr_rgui 0 O  &none
 &none                                 &kp Z                &kp X            &kp C         &lt 11 D           &kp V                &lt 5 TAB     &lt 8 ESCAPE  &lang_toggle    &none      &none                       &lt 9 TAB    &kp K                 &lt 11 H      &kp COMMA     &kp DOT           &kp FSLH      &none
 &magic 1 DEFAULT_LAYER                &kp GRAVE            &none            &kp SPACE     &kp ENTER                               &lt_bspc 4 0  &lt 9 DEL     &kp LG(H)       &kp PSCRN  &mt LA(LEFT_GUI) LC(SPACE)  &lt 6 SPACE                        &kp ENTER     &tog 9        &none             &kp TILDE     &magic 1 DEFAULT_LAYER
             >;
@@ -673,7 +674,7 @@
 &trans  &trans           &trans           &trans        &trans                                                                                                          &trans        &trans        &trans            &trans           &trans
 &trans  &trans           &trans           &trans        &trans             &trans                                                                 &trans                &trans        &trans        &trans            &trans           &trans
 &trans  &kp PERIOD       &kp COMMA        &kp E         &kp R              &kp T                                                                  &kp Y                 &kp U         &kp I         &kp O             &kp P            &trans
-&trans  &hml_lgui A  &hml_lalt S  &hml_lctrl D  &hml_lshift F  &hml_lgui_lalt G                                                    &hmr_rgui_ralt H  &hmr_rshift J  &hmr_rctrl K  &hmr_ralt L  &hmr_rgui SEMI  &kp APOS
+&trans  &hml_lgui 0 A  &hml_lalt 0 S  &hml_lctrl 0 D  &hml_lshift 0 F  &hml_lgui_lalt 0 G                                           &hmr_rgui_ralt 0 H  &hmr_rshift 0 J  &hmr_rctrl 0 K  &hmr_ralt 0 L  &hmr_rgui 0 SEMI  &kp APOS
 &trans  &kp Z            &kp X            &kp C         &lt 11 V           &kp B                &trans  &trans  &trans    &trans  &trans  &trans  &kp N                 &lt 11 M      &kp APOS      &kp SLASH         &q_qmark         &trans
 &trans  &trans           &trans           &trans        &trans                                  &trans  &trans  &trans    &mo 0   &trans  &trans                        &trans        &trans        &trans            &trans           &trans
             >;
@@ -811,7 +812,7 @@
 &trans  &trans  &trans  &trans  &trans                                                                          &trans          &trans          &trans        &trans        &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans          &trans          &trans        &trans        &trans
 &trans  &kp Q   &kp W   &kp F   &kp P   &kp B                                                           &kp J   &kp L           &kp U           &kp Y         &trans        &trans
-&trans  &hml_lgui A  &hml_lalt R  &hml_lctrl S  &hml_lshift T  &hml_lgui_lalt G                            &hmr_rgui_ralt M  &hmr_rshift N  &hmr_rctrl E  &hmr_ralt I   &hmr_rgui O   &trans
+&trans  &hml_lgui 0 A  &hml_lalt 0 R  &hml_lctrl 0 S  &hml_lshift 0 T  &hml_lgui_lalt 0 G                   &hmr_rgui_ralt 0 M  &hmr_rshift 0 N  &hmr_rctrl 0 E  &hmr_ralt 0 I   &hmr_rgui 0 O   &trans
 &trans  &kp Z   &kp X   &kp C   &kp D   &kp V   &trans  &trans  &trans    &trans  &trans  &trans        &kp K   &kp H           &trans          &trans        &trans        &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans                &trans          &trans          &trans        &trans        &trans
             >;
