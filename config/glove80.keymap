@@ -758,12 +758,12 @@
 
         mouse_layer {
             bindings = <
-&trans  &trans  &trans          &trans          &trans                                                                                                  &trans          &trans          &trans           &trans  &trans
-&trans  &trans  &trans          &trans          &trans           &trans                                                                         &trans  &trans          &trans          &trans           &trans  &trans
-&trans  &trans  &trans          &msc SCRL_UP    &trans           &trans                                                                         &trans  &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &trans  &trans
-&trans  &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans                                                                         &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
-&trans  &trans  &kp LC(X)       &kp LC(C)       &trans           &kp LC(V)  &trans     &trans  &trans    &trans  &trans  &trans                 &trans  &mkp LCLK       &mkp MB3        &mkp RCLK        &trans  &trans
-&trans  &trans  &trans          &kp LCTRL       &kp LEFT_SHIFT              &mkp LCLK  &trans  &trans    &trans  &trans  &mo MOUSE_TURBO_LAYER          &trans          &tog 9          &trans           &trans  &trans
+&trans  &trans  &trans     &trans     &trans                                                                                  &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans     &trans     &trans          &trans                                                          &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans     &trans     &trans          &trans                                                          &trans  &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans  &trans
+&trans  &trans  &trans     &kp LCTRL  &kp LEFT_SHIFT  &trans                                                          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &trans  &kp LC(X)  &kp LC(C)  &trans          &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &trans     &trans  &msc SCRL_LEFT  &tog 9          &msc SCRL_RIGHT  &trans  &trans
+&trans  &trans  &trans     &trans     &trans                     &mo 12  &trans  &trans    &trans  &trans  &mkp LCLK          &mkp LCLK       &mkp MCLK       &mkp RCLK        &trans  &trans
             >;
         };
 
@@ -792,7 +792,7 @@
 &trans  &trans  &trans  &trans  &trans                                                                                                          &trans        &trans          &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans        &trans                                                                            &trans          &trans        &trans          &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans        &flow_bookmark                                                                    &trans          &select_line  &delete_to_bol  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans        &gemini_tab                                                                       &trans          &trans        &trans          &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans        &gemini_tab                                                                       &trans          &trans        &kp COLON       &trans  &trans  &trans
 &trans  &trans  &trans  &tog 9  &lang_toggle  &trans          &trans          &trans          &trans    &trans  &trans  &trans  &delete_to_eol  &lang_toggle  &tog 9          &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans                        &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans                  &trans        &trans          &trans  &trans  &trans
             >;
