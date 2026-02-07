@@ -5,9 +5,7 @@
  */
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 900  // default: 600
-#define U_MOUSE_TURBO_MOVE_VAL 1200
 #define U_MOUSE_SLOW_MOVE_VAL 300
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -17,8 +15,6 @@
 #include <dt-bindings/zmk/rgb.h>
 #include "zmk-helpers/key-labels/glove80.h"
 #include "zmk-helpers/helper.h"
-
-#define HYPER LC(LS(LG(LALT)))
 
 // layers
 
@@ -34,11 +30,9 @@
 #define MOUSE_LAYER 9
 #define ORIGINAL_DEFAULT_LAYER 10
 #define MACROS_LAYER 11
-#define MOUSE_TURBO_LAYER 12
+#define MOUSE_SLOW_LAYER 12
 #define MOD_ACTIVE_LAYER 13
 #define ENGLISH_ALPHA_LAYER 14
-#define HT_TAPPING_TERM_MS 200
-#define A_KEY A
 
 // Key position groups (labels from zmk-helpers/key-labels/glove80.h)
 // Naming: [Side][Row][Position]  Side: L/R  Position: 0=inner .. 5=outer
@@ -101,8 +95,6 @@ MAKE_MOD(mod_rgui_ralt, RG(RALT))
 MAKE_MOD(mod_lalt_lgui, LA(LGUI))
 
 // Home row mod hold-taps
-MAKE_HRM_L(hml, kp)
-MAKE_HRM_R(hmr, kp)
 MAKE_HRM_L(hml_lgui, mod_lgui)
 MAKE_HRM_L(hml_lalt, mod_lalt)
 MAKE_HRM_L(hml_lctrl, mod_lctrl)
@@ -132,21 +124,6 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
 
 / {
     behaviors {
-        mt: mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-
-            // flavor = "hold-preferred";
-            // tapping-term-ms = <200>;
-
-            flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            display-name = "Mod-Tap";
-        };
-
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -185,7 +162,7 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
             label = "MAGIC_HOLD_TAP";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <HT_TAPPING_TERM_MS>;
+            tapping-term-ms = <200>;
             bindings = <&mo>, <&rgb_ug_status_macro>;
         };
 
@@ -249,7 +226,7 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
                 <&macro_release>,
                 <&kp LGUI>,
                 <&macro_tap>,
-                <&tog 3>;
+                <&tog HEBREW_LAYER>;
         };
 
         // Delete to beginning of line (Ctrl+U - "kill line backward")
@@ -368,12 +345,12 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
         compatible = "zmk,combos";
 
         toggle_left_hand {
-            bindings = <&tog 4>;
+            bindings = <&tog CURSOR_LAYER>;
             key-positions = <LH5 LH2>;
         };
 
         mouse_toggle {
-            bindings = <&tog 9>;
+            bindings = <&tog MOUSE_LAYER>;
             key-positions = <RH2 RH5>;
         };
 
@@ -397,12 +374,12 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
 
         default_layer {
             bindings = <
-&to 0                   &to 10         &none          &none           &none                                                                                                                                            &none            &none           &none          &none          &kp LG(L)
-&tog 3                  &kp N1         &kp N2         &kp N3          &kp N4           &kp N5                                                                                                      &kp N6              &kp N7           &kp N8          &kp N9         &kp N0         &none
+&to DEFAULT_LAYER       &to ORIGINAL_DEFAULT_LAYER  &none  &none  &none                                                                                                                                            &none            &none           &none          &none          &kp LG(L)
+&tog HEBREW_LAYER       &kp N1         &kp N2         &kp N3          &kp N4           &kp N5                                                                                                      &kp N6              &kp N7           &kp N8          &kp N9         &kp N0         &none
 &none                   &kp Q          &kp W          &kp F           &kp P            &kp B                                                                                                       &kp J               &kp L            &kp U           &kp Y          &kp SEMI       &none
 &none                   &hml_lgui 0 A  &hml_lalt 0 R  &hml_lctrl 0 S  &hml_lshift 0 T  &hml_lgui_lalt 0 G                                                                                          &hmr_rgui_ralt 0 M  &hmr_rshift 0 N  &hmr_rctrl 0 E  &hmr_ralt 0 I  &hmr_rgui 0 O  &none
-&none                   &kp Z          &kp X          &kp C           &lt 11 D         &kp V               &lt 5 TAB     &lt 8 ESCAPE  &none    &none      &none                      &lt 9 TAB    &kp K               &lt 11 H         &kp COMMA       &kp DOT        &kp FSLH       &none
-&magic 1 DEFAULT_LAYER  &kp GRAVE      &none          &kp SPACE       &kp ENTER                            &lt_bspc 4 0  &lt 9 DEL     &none    &kp PSCRN  &mt_lalt_lgui 0 LC(SPACE)  &lt 6 SPACE                      &kp ENTER        &tog 9          &none          &kp TILDE      &magic 1 DEFAULT_LAYER
+&none                   &kp Z          &kp X          &kp C           &lt MACROS_LAYER D  &kp V            &lt NUMBERS_LAYER TAB  &lt SYSTEM_LAYER ESCAPE  &none    &none      &none                      &lt MOUSE_LAYER TAB  &kp K          &lt MACROS_LAYER H  &kp COMMA       &kp DOT        &kp FSLH       &none
+&magic MAGIC_LAYER DEFAULT_LAYER  &kp GRAVE  &none  &kp SPACE  &kp ENTER                            &lt_bspc CURSOR_LAYER 0  &lt MOUSE_LAYER DEL  &none    &kp PSCRN  &mt_lalt_lgui 0 LC(SPACE)  &lt SYMBOLS_LAYER SPACE                      &kp ENTER        &tog MOUSE_LAYER  &none          &kp TILDE      &magic MAGIC_LAYER DEFAULT_LAYER
             >;
         };
 
@@ -413,13 +390,13 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
 &none        &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                     &none  &none  &none  &none  &none       &none
 &bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                     &none  &none  &none  &none  &none       &bootloader
 &sys_reset   &none            &none            &none            &none            &none            &bt_2  &bt_3  &none           &none  &none  &none  &none  &none  &none  &none  &none       &sys_reset
-&none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB    &none  &none  &none         &none  &none  &none  &none       &to 2
+&none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB    &none  &none  &none         &none  &none  &none  &none       &to FACTORY_TEST_LAYER
             >;
         };
 
         factory_test_layer {
             bindings = <
-&to 0   &kp N6  &kp N2  &kp N8  &kp N4                                                                    &kp N4  &kp N8  &kp N2  &kp N6  &kp N0
+&to DEFAULT_LAYER  &kp N6  &kp N2  &kp N8  &kp N4                                                                    &kp N4  &kp N8  &kp N2  &kp N6  &kp N0
 &kp N1  &kp N7  &kp N3  &kp N9  &kp N5  &kp N0                                                    &kp N0  &kp N5  &kp N9  &kp N3  &kp N7  &kp N1
 &kp N2  &kp N8  &kp N4  &kp N0  &kp N6  &kp N1                                                    &kp N1  &kp N6  &kp N0  &kp N4  &kp N8  &kp N2
 &kp N3  &kp N9  &kp N5  &kp N1  &kp N7  &kp N2                                                    &kp N2  &kp N7  &kp N1  &kp N5  &kp N9  &kp N3
@@ -436,8 +413,8 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
 &trans  &trans         &trans         &trans          &trans           &trans                                                                &trans              &trans           &trans          &trans         &trans            &trans
 &trans  &kp PERIOD     &kp COMMA      &kp E           &kp R            &kp T                                                                 &kp Y               &kp U            &kp I           &kp O          &kp P             &trans
 &trans  &hml_lgui 0 A  &hml_lalt 0 S  &hml_lctrl 0 D  &hml_lshift 0 F  &hml_lgui_lalt 0 G                                                    &hmr_rgui_ralt 0 H  &hmr_rshift 0 J  &hmr_rctrl 0 K  &hmr_ralt 0 L  &hmr_rgui 0 SEMI  &kp APOS
-&trans  &kp Z          &kp X          &kp C           &lt 11 V         &kp B               &trans  &trans  &trans    &trans  &trans  &trans  &kp N               &lt 11 M         &kp APOS        &kp SLASH      &q_qmark          &trans
-&trans  &trans         &trans         &trans          &trans                               &trans  &trans  &trans    &mo 0   &trans  &trans                      &trans           &trans          &trans         &trans            &trans
+&trans  &kp Z          &kp X          &kp C           &lt MACROS_LAYER V  &kp B            &trans  &trans  &trans    &trans  &trans  &trans  &kp N               &lt MACROS_LAYER M  &kp APOS        &kp SLASH      &q_qmark          &trans
+&trans  &trans         &trans         &trans          &trans                               &trans  &trans  &trans    &mo DEFAULT_LAYER  &trans  &trans                      &trans           &trans          &trans         &trans            &trans
             >;
         };
 
@@ -446,7 +423,7 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
 &trans     &trans               &trans           &trans            &trans                                                                                          &trans         &trans      &trans     &trans  &trans
 &trans     &trans               &trans           &trans            &trans                 &trans                                                           &trans  &trans         &trans      &trans     &trans  &trans
 &trans     &kp LA(F4)           &kp LC(W)        &kp LC(F)         &kp LC(P)              &kp LC(B)                                                        &trans  &kp PG_UP      &kp UP      &kp PG_DN  &trans  &trans
-&trans     &hml LEFT_WIN LC(A)  &hml LALT LC(R)  &hml LCTRL LC(S)  &hml LEFT_SHIFT LC(T)  &kp LC(G)                                                        &trans  &kp LEFT       &kp DOWN    &kp RIGHT  &trans  &trans
+&trans     &hml_lgui 0 LC(A)  &hml_lalt 0 LC(R)  &hml_lctrl 0 LC(S)  &hml_lshift 0 LC(T)  &kp LC(G)                                                        &trans  &kp LEFT       &kp DOWN    &kp RIGHT  &trans  &trans
 &kp LC(Y)  &kp LC(Z)            &kp LC(X)        &kp LC(C)         &kp LC(D)              &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &kp ESCAPE  &trans  &kp HOME       &kp ESCAPE  &kp END    &trans  &trans
 &trans     &trans               &trans           &trans            &kp DEL                           &trans  &trans  &trans    &trans  &trans  &kp ENTER           &kp LA(LC(V))  &trans      &trans     &trans  &trans
             >;
@@ -506,8 +483,8 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
 &trans  &trans  &trans     &trans     &trans          &trans                                                          &trans  &trans          &trans          &trans           &trans  &trans
 &trans  &trans  &trans     &trans     &trans          &trans                                                          &trans  &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans  &trans
 &trans  &trans  &trans     &kp LCTRL  &kp LEFT_SHIFT  &trans                                                          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
-&trans  &trans  &kp LC(X)  &kp LC(C)  &trans          &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &trans     &trans  &msc SCRL_LEFT  &tog 9          &msc SCRL_RIGHT  &trans  &trans
-&trans  &trans  &trans     &trans     &trans                     &mo 12  &trans  &trans    &trans  &trans  &mkp LCLK          &mkp LCLK       &mkp MCLK       &mkp RCLK        &trans  &trans
+&trans  &trans  &kp LC(X)  &kp LC(C)  &trans          &kp LC(V)  &trans  &trans  &trans    &trans  &trans  &trans     &trans  &msc SCRL_LEFT  &tog MOUSE_LAYER  &msc SCRL_RIGHT  &trans  &trans
+&trans  &trans  &trans     &trans     &trans                     &mo MOUSE_SLOW_LAYER  &trans  &trans    &trans  &trans  &mkp LCLK          &mkp LCLK       &mkp MCLK       &mkp RCLK        &trans  &trans
             >;
         };
 
@@ -522,12 +499,12 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&to 0       &kp F2    &kp F3   &kp F4    &kp F5                                                                                            &kp F6  &kp F7     &kp F8    &kp F9    &kp F10
+&to DEFAULT_LAYER  &kp F2  &kp F3  &kp F4  &kp F5                                                                                            &kp F6  &kp F7     &kp F8    &kp F9    &kp F10
 &kp EQUAL   &kp N1    &kp N2   &kp N3    &kp N4     &kp N5                                                                         &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
 &kp TAB     &kp Q     &kp W    &kp E     &kp R      &kp T                                                                          &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
 &kp ESC     &kp A     &kp S    &kp D     &kp F      &kp G                                                                          &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
 &kp GRAVE   &kp Z     &kp X    &kp C     &kp V      &kp B   &kp LSHFT  &kp LCTRL  &kp LEFT_GUI    &kp RMETA  &kp RCTRL  &kp RSHFT  &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp PG_UP
-&magic 1 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT          &kp BSPC   &kp DEL    &kp LALT        &kp RALT   &kp RET    &kp SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp PG_DN
+&magic MAGIC_LAYER DEFAULT_LAYER  &kp HOME  &kp END  &kp LEFT  &kp RIGHT          &kp BSPC   &kp DEL    &kp LALT        &kp RALT   &kp RET    &kp SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp PG_DN
             >;
         };
 
@@ -537,12 +514,12 @@ ZMK_HOLD_TAP(mt_lalt_lgui, \
 &trans  &trans  &trans  &trans  &trans        &trans                                                                            &trans          &trans        &trans          &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans        &flow_bookmark                                                                    &trans          &select_line  &delete_to_bol  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans        &gemini_tab                                                                       &trans          &trans        &kp COLON       &trans  &trans  &trans
-&trans  &trans  &trans  &tog 9  &lang_toggle  &trans          &trans          &trans          &trans    &trans  &trans  &trans  &delete_to_eol  &lang_toggle  &tog 9          &trans  &trans  &trans
+&trans  &trans  &trans  &tog MOUSE_LAYER  &lang_toggle  &trans          &trans          &trans          &trans    &trans  &trans  &trans  &delete_to_eol  &lang_toggle  &tog MOUSE_LAYER  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans                        &delete_to_bol  &delete_to_eol  &trans    &trans  &trans  &trans                  &trans        &trans          &trans  &trans  &trans
             >;
         };
 
-        mouse_turbo_layer {
+        mouse_slow_layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                                                                    &trans                               &trans                               &trans                              &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans                               &trans                               &trans                              &trans  &trans
