@@ -16,6 +16,7 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 #include "zmk-helpers/key-labels/glove80.h"
+#include "zmk-helpers/helper.h"
 
 #define HYPER LC(LS(LG(LALT)))
 
@@ -48,6 +49,79 @@
 #define KEYS_R  RC1 RC2 RC3 RC4 RC5  RN0 RN1 RN2 RN3 RN4 RN5  RT0 RT1 RT2 RT3 RT4 RT5  RM0 RM1 RM2 RM3 RM4 RM5  RB0 RB1 RB2 RB3 RB4 RB5  RF1 RF2 RF3 RF4 RF5
 #define THUMBS_L  LH0 LH1 LH2 LH3 LH4 LH5
 #define THUMBS_R  RH0 RH1 RH2 RH3 RH4 RH5
+
+// Generator: signal-layer modifier macro (press mod + activate MOD_ACTIVE_LAYER)
+#define MAKE_MOD(NAME, MOD) \
+    ZMK_MACRO(NAME, \
+        wait-ms = <0>; \
+        tap-ms = <0>; \
+        bindings = \
+            <&macro_press>, \
+            <&mo MOD_ACTIVE_LAYER &kp MOD>, \
+            <&macro_pause_for_release>, \
+            <&macro_release>, \
+            <&mo MOD_ACTIVE_LAYER &kp MOD>; \
+    )
+
+// Generator: home row mod hold-tap (left hand - triggers on right side + left thumbs)
+#define MAKE_HRM_L(NAME, BIND) \
+    ZMK_HOLD_TAP(NAME, \
+        flavor = "balanced"; \
+        require-prior-idle-ms = <150>; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <175>; \
+        bindings = <&BIND>, <&kp>; \
+        hold-trigger-key-positions = <KEYS_R THUMBS_R LH5 LH2>; \
+        hold-trigger-on-release; \
+    )
+
+// Generator: home row mod hold-tap (right hand - triggers on left side + right thumbs)
+#define MAKE_HRM_R(NAME, BIND) \
+    ZMK_HOLD_TAP(NAME, \
+        flavor = "balanced"; \
+        require-prior-idle-ms = <150>; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <175>; \
+        bindings = <&BIND>, <&kp>; \
+        hold-trigger-key-positions = <KEYS_L THUMBS_L RH5 RH2>; \
+        hold-trigger-on-release; \
+    )
+
+// Signal-layer modifier macros
+MAKE_MOD(mod_lgui, LGUI)
+MAKE_MOD(mod_lalt, LALT)
+MAKE_MOD(mod_lctrl, LCTRL)
+MAKE_MOD(mod_lshift, LSHIFT)
+MAKE_MOD(mod_lgui_lalt, LG(LALT))
+MAKE_MOD(mod_rgui, RGUI)
+MAKE_MOD(mod_ralt, RALT)
+MAKE_MOD(mod_rctrl, RCTRL)
+MAKE_MOD(mod_rshift, RSHIFT)
+MAKE_MOD(mod_rgui_ralt, RG(RALT))
+MAKE_MOD(mod_lalt_lgui, LA(LGUI))
+
+// Home row mod hold-taps
+MAKE_HRM_L(hml, kp)
+MAKE_HRM_R(hmr, kp)
+MAKE_HRM_L(hml_lgui, mod_lgui)
+MAKE_HRM_L(hml_lalt, mod_lalt)
+MAKE_HRM_L(hml_lctrl, mod_lctrl)
+MAKE_HRM_L(hml_lshift, mod_lshift)
+MAKE_HRM_L(hml_lgui_lalt, mod_lgui_lalt)
+MAKE_HRM_R(hmr_rgui, mod_rgui)
+MAKE_HRM_R(hmr_ralt, mod_ralt)
+MAKE_HRM_R(hmr_rctrl, mod_rctrl)
+MAKE_HRM_R(hmr_rshift, mod_rshift)
+MAKE_HRM_R(hmr_rgui_ralt, mod_rgui_ralt)
+
+// Thumb mod-tap with signal layer (no positional trigger)
+ZMK_HOLD_TAP(mt_lalt_lgui, \
+    flavor = "balanced"; \
+    require-prior-idle-ms = <150>; \
+    tapping-term-ms = <280>; \
+    quick-tap-ms = <175>; \
+    bindings = <&mod_lalt_lgui>, <&kp>; \
+)
 
 &mmv {
     x-input-code = <INPUT_REL_X>;
@@ -113,198 +187,6 @@
             flavor = "tap-preferred";
             tapping-term-ms = <HT_TAPPING_TERM_MS>;
             bindings = <&mo>, <&rgb_ug_status_macro>;
-        };
-
-        // Copied from official ZMK examples https://zmk.dev/docs/keymaps/behaviors/hold-tap?examples=home_row_mods
-
-        hml: home_row_mod_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-
-            // The "balanced" flavor produces a "hold" if another key is both pressed and released within the tapping-term.
-            // This interrupt flavor is primarily used to decide between hold and tap, rather than using tapping-term-ms.
-            // This matches how modifiers are used a majority of the time (hold shift, tap a key, release shift).
-
-            flavor = "balanced";
-
-            // require-prior-idle-ms is set to resolve to taps immediately when typing at speed, which helps eliminate typing delay.
-
-            require-prior-idle-ms = <150>;
-
-            // This value defines how long a key must be pressed to trigger the "hold" behavior, alongside other factors described
-            // in interrupt flavors. The default is 200ms.
-
-            tapping-term-ms = <280>;
-
-            // quick-tap-ms is set to 175ms, for the event where a tapped key may wish to be held down.
-
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-
-            // Positional hold taps with hold-trigger-on-release are used to avoid accidental hold resolutions when typing sequences
-            // of letters all with the same hand.
-            // List of keys on the right side of the keyboard
-
-            hold-trigger-key-positions = <KEYS_R THUMBS_R LH5 LH2>;
-            hold-trigger-on-release;
-        };
-
-        hmr: home_row_mod_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-
-            // List of keys on the left side of the keyboard
-
-            hold-trigger-key-positions = <KEYS_L THUMBS_L RH5 RH2>;
-            hold-trigger-on-release;
-        };
-
-        // Home row mods with signal layer for consistent shortcuts across language layers
-        // Note: #binding-cells must be 2 per ZMK schema; first param (0) is ignored by macro
-
-        hml_lgui: hml_lgui {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_lgui>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_R THUMBS_R LH5 LH2>;
-            hold-trigger-on-release;
-        };
-
-        hml_lalt: hml_lalt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_lalt>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_R THUMBS_R LH5 LH2>;
-            hold-trigger-on-release;
-        };
-
-        hml_lctrl: hml_lctrl {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_lctrl>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_R THUMBS_R LH5 LH2>;
-            hold-trigger-on-release;
-        };
-
-        hml_lshift: hml_lshift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_lshift>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_R THUMBS_R LH5 LH2>;
-            hold-trigger-on-release;
-        };
-
-        hml_lgui_lalt: hml_lgui_lalt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_lgui_lalt>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_R THUMBS_R LH5 LH2>;
-            hold-trigger-on-release;
-        };
-
-        hmr_rgui: hmr_rgui {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_rgui>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_L THUMBS_L RH5 RH2>;
-            hold-trigger-on-release;
-        };
-
-        hmr_ralt: hmr_ralt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_ralt>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_L THUMBS_L RH5 RH2>;
-            hold-trigger-on-release;
-        };
-
-        hmr_rctrl: hmr_rctrl {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_rctrl>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_L THUMBS_L RH5 RH2>;
-            hold-trigger-on-release;
-        };
-
-        hmr_rshift: hmr_rshift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_rshift>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_L THUMBS_L RH5 RH2>;
-            hold-trigger-on-release;
-        };
-
-        hmr_rgui_ralt: hmr_rgui_ralt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_rgui_ralt>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_L THUMBS_L RH5 RH2>;
-            hold-trigger-on-release;
-        };
-
-        mt_lalt_lgui: mt_lalt_lgui {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mod_lalt_lgui>, <&kp>;
         };
 
         // Custom mod-morph for Q key: q normally, ? with shift
@@ -464,150 +346,6 @@
             label = "FLOW_BOOKMARK";
         };
 
-        // Modifier macros that also activate signal layer for consistent shortcuts
-
-        mod_lgui: mod_lgui {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp LGUI>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp LGUI>;
-        };
-
-        mod_lalt: mod_lalt {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp LALT>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp LALT>;
-        };
-
-        mod_lctrl: mod_lctrl {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp LCTRL>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp LCTRL>;
-        };
-
-        mod_lshift: mod_lshift {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp LSHIFT>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp LSHIFT>;
-        };
-
-        mod_lgui_lalt: mod_lgui_lalt {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp LG(LALT)>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp LG(LALT)>;
-        };
-
-        mod_rgui: mod_rgui {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp RGUI>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp RGUI>;
-        };
-
-        mod_ralt: mod_ralt {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp RALT>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp RALT>;
-        };
-
-        mod_rctrl: mod_rctrl {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp RCTRL>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp RCTRL>;
-        };
-
-        mod_rshift: mod_rshift {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp RSHIFT>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp RSHIFT>;
-        };
-
-        mod_rgui_ralt: mod_rgui_ralt {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp RG(RALT)>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp RG(RALT)>;
-        };
-
-        mod_lalt_lgui: mod_lalt_lgui {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo MOD_ACTIVE_LAYER &kp LA(LGUI)>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo MOD_ACTIVE_LAYER &kp LA(LGUI)>;
-        };
     };
 
     conditional_layers {
